@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickLab — On‑Demand Lab Technicians</title>
+  <meta name="description" content="On‑demand laboratory support across Israel. Evenings, weekends, no strings. General lab, analytical & separation, microbiology, cell biology, weekend coverage, and beyond-the-bench services." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1f23;          /* deep teal/blue-black */
+      --ink:#0b1f23;
+      --brand:#0db36b;       /* bright green */
+      --brand-ink:#063a26;
+      --muted:#62777c;
+      --paper:#ffffff;
+      --ring: rgba(13,179,107,.35);
+      --card:#0f2a30;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:#eaf5f2;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:#c8fff1;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    /* NAV */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo svg{width:36px;height:36px;display:block}
+    .logo span{font-weight:800;letter-spacing:.2px;font-size:1.1rem;color:#fff}
+    .nav .cta{display:flex;gap:12px;align-items:center}
+    .btn, .btn-ghost{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 18px;border-radius:12px;border:1px solid transparent;
+      font-weight:700;letter-spacing:.2px;cursor:pointer;text-decoration:none
+    }
+    .btn{background:linear-gradient(180deg,var(--brand),#0aa15f);color:#04281b;box-shadow:0 6px 18px var(--ring)}
+    .btn:hover{filter:brightness(.98)}
+    .btn-ghost{background:transparent;border-color:#1a3a41;color:#c8fff1}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center;padding:36px 0 16px}
+    .kicker{display:inline-block;background:#0e3036;color:#b7fff0;padding:6px 10px;border-radius:999px;font-size:.8rem;font-weight:700;letter-spacing:.3px;margin-bottom:14px}
+    h1{margin:0 0 10px;font-size:2.8rem;line-height:1.1;color:#fff}
+    .sub{color:#cde6e1;font-size:1.1rem;margin:0 0 20px;max-width:56ch}
+    .hero-card{
+      background:linear-gradient(180deg,#0f2a30,#0b252b);
+      border:1px solid #1b3f45;border-radius:18px;padding:18px;
+      display:grid;gap:14px
+    }
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:#0e3036;border:1px solid #1b3f45;border-radius:999px;color:#def6f2;padding:8px 12px;font-weight:600}
+    .hero-img{
+      min-height:320px;border-radius:18px;border:1px solid #1b3f45;
+      background:
+        radial-gradient(1200px 400px at 70% 0%,rgba(13,179,107,.12),transparent 60%),
+        radial-gradient(900px 300px at 20% 100%,rgba(13,179,107,.08),transparent 60%),
+        linear-gradient(180deg,#0e2b31,#0a2025);
+      display:flex;align-items:flex-end;justify-content:flex-end;padding:16px
+    }
+    .hero-img .badge{background:#0e3036;border:1px solid #1b3f45;border-radius:12px;padding:10px 12px;color:#bff7e8;font-weight:700}
+    /* SECTIONS */
+    section{padding:40px 0;border-top:1px solid #14353b}
+    h2{margin:0 0 12px;color:#fff;font-size:1.8rem}
+    .muted{color:#a8c7c2}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      background:linear-gradient(180deg,var(--card),#0c262b);
+      border:1px solid #1b3f45;border-radius:16px;padding:16px
+    }
+    .card h3{margin:2px 0 8px;font-size:1.05rem;color:#eafff8}
+    .card p{margin:0;color:#cfe7e1;font-size:.98rem}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:#0e3036;border:1px solid #1b3f45;border-radius:999px;padding:6px 10px;color:#b7fff0;font-weight:700;font-size:.85rem}
+    .list{display:grid;gap:10px;margin:10px 0 0}
+    /* HOW IT WORKS */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .step{background:#0e3036;border:1px solid #1b3f45;border-radius:14px;padding:14px}
+    .step b{display:block;color:#eafff8;margin-bottom:6px}
+    /* FOOTER */
+    footer{padding:28px 0 60px;color:#a0c0bb}
+    .foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;border-top:1px solid #14353b;padding-top:18px}
+    .foot small{opacity:.9}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr;gap:16px}
+      .bullets{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .wrap{padding:18px}
+      h1{font-size:2.2rem}
+      .grid-3{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+    }
+    /* WhatsApp floating button */
+    .fab{
+      position:fixed;right:18px;bottom:18px;z-index:50;
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(180deg,var(--brand),#0aa15f);
+      color:#04281b;font-weight:800;padding:12px 16px;border-radius:999px;
+      border:1px solid #0aa15f;box-shadow:0 10px 28px var(--ring)
+    }
+    .fab:hover{filter:brightness(.98);text-decoration:none}
+    /* simple icon styles */
+    .i{display:inline-block;width:18px;height:18px}
+    .i-check{background:conic-gradient(from 180deg at 50% 50%, #0db36b 0 25%, #0db36b 0 100%);-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.285-5.011-3.715 3.716 9 8.728 15-15.285z"/></svg>') center/contain no-repeat;mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.285-5.011-3.715 3.716 9 8.728 15-15.285z"/></svg>') center/contain no-repeat}
+    .i-wa{-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19.11 17.59c-.27-.11-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.31-.79-.7-1.33-1.56-1.49-1.82-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.83-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02-.18 0-.47.07-.72.34-.25.27-.96.94-.96 2.29s.99 2.66 1.14 2.84c.14.18 1.95 2.98 4.73 4.17.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.58-.64 1.8-1.27.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.29z"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19.11 17.59c-.27-.11-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.31-.79-.7-1.33-1.56-1.49-1.82-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.83-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02-.18 0-.47.07-.72.34-.25.27-.96.94-.96 2.29s.99 2.66 1.14 2.84c.14.18 1.95 2.98 4.73 4.17.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.58-.64 1.8-1.27.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.29z"/></svg>') center/contain no-repeat;background:#04281b}
+    /* simple SVG logo wordmark fallback */
+    .word{font-weight:900;letter-spacing:.2px}
+    .tag{font-weight:800;color:#b7fff0}
+    /* badges */
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .badge{border:1px solid #1b3f45;border-radius:999px;background:#0e3036;color:#b7fff0;padding:6px 10px;font-weight:700;font-size:.82rem}
+  </style>
+</head>
+<body>
+  <a class="fab" href="https://wa.me/972559907576" target="_blank" rel="noopener">
+    <span class="i i-wa"></span> WhatsApp us
+  </a>
+  <header class="wrap nav" aria-label="top navigation">
+    <a href="#" class="logo">
+      <!-- Simple logo mark -->
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#10cf7a"/>
+            <stop offset="100%" stop-color="#0aa15f"/>
+          </linearGradient>
+        </defs>
+        <rect x="8" y="8" width="48" height="48" rx="12" fill="url(#g)" />
+        <path d="M20 38l8-12 6 8 10-16" stroke="#04281b" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>QuickLab</span>
+    </a>
+    <div class="cta">
+      <a class="btn-ghost" href="#services">Services</a>
+      <a class="btn" href="https://wa.me/972559907576" target="_blank" rel="noopener">Book a Technician</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="kicker">On‑Demand Lab Support • Israel</span>
+        <h1>A technician for your lab — evenings, weekends, no strings.</h1>
+        <p class="sub">Keep your experiments moving when your team can’t. On‑site, flexible lab support by experienced pharma/biotech professionals. No hiring, no payroll, just results.</p>
+
+        <div class="hero-card">
+          <div class="bullets">
+            <span class="chip"><span class="i i-check"></span> GMP‑aware workflows</span>
+            <span class="chip"><span class="i i-check"></span> Short‑notice coverage</span>
+            <span class="chip"><span class="i i-check"></span> Analytical & separation</span>
+            <span class="chip"><span class="i i-check"></span> Micro & cell biology</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="https://wa.me/972559907576" target="_blank" rel="noopener">WhatsApp Now</a>
+            <a class="btn-ghost" href="#about">Why QuickLab?</a>
+          </div>
+          <div class="badges">
+            <span class="badge">Nights & Weekends</span>
+            <span class="badge">Jerusalem • Tel Aviv • Rehovot • Haifa</span>
+            <span class="badge">English • Hebrew</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="badge">Real scientists. Real results.</div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <p class="muted">Pick exactly what you need — from routine tasks to advanced workflows. We plug into your SOPs or provide ours.</p>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card">
+          <h3>General Lab Support</h3>
+          <p>Buffer prep, media, autoclave, aliquoting, inventory, equipment startup/shutdown, weekend checks.</p>
+        </div>
+        <div class="card">
+          <h3>Analytical & Separation</h3>
+          <p>HPLC/Flash/SPE/Prep, HPTLC, chromatography method execution, fraction tracking, basic LC‑MS sample prep.</p>
+        </div>
+        <div class="card">
+          <h3>Microbiology</h3>
+          <p>Streaking, inoculations, growth curves, CFU counts, aseptic workflows, antibiotic susceptibility, IHC staining support.</p>
+        </div>
+        <div class="card">
+          <h3>Cell Biology</h3>
+          <p>Mammalian culture maintenance, passaging, plating, basic viability/tox assays support (per your SOPs).</p>
+        </div>
+        <div class="card">
+          <h3>Weekend Coverage</h3>
+          <p>Feeding, checks, sampling, scheduled measurements, instrument babysitting, critical step monitoring.</p>
+        </div>
+        <div class="card">
+          <h3>Beyond the Bench</h3>
+          <p>Light data cleanup, Gantt updates, SOP edits, vendor coordination, courier drop‑offs, inventory ordering.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>Why QuickLab?</h2>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card">
+          <h3>Experienced</h3>
+          <p>10+ years across pharma R&amp;D, CMC, bioreporters, and downstream process development. We speak lab and operations.</p>
+        </div>
+        <div class="card">
+          <h3>Flexible</h3>
+          <p>Book us for a single evening, a weekend, or a recurring slot. No commitments. We scale up or down with your needs.</p>
+        </div>
+        <div class="card">
+          <h3>GMP‑Aware</h3>
+          <p>Comfortable with MDR/CFR/EudraLex concepts and documentation. We respect your QA and traceability requirements.</p>
+        </div>
+      </div>
+      <div class="list">
+        <span class="pill">Project‑based • Hourly • Retainer</span>
+        <span class="pill">NDA friendly</span>
+        <span class="pill">Hands‑on, not consulting</span>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="steps" style="margin-top:12px">
+        <div class="step"><b>1. Ping us</b><span class="muted">Send a WhatsApp with date/time, task, and location.</span></div>
+        <div class="step"><b>2. Confirm</b><span class="muted">We confirm availability and scope. Share SOPs if needed.</span></div>
+        <div class="step"><b>3. Execute</b><span class="muted">We show up, run the tasks, and document what matters.</span></div>
+        <div class="step"><b>4. Handover</b><span class="muted">You get a short summary and any logs needed for QA.</span></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Ready to keep the lab productive?</h2>
+      <p class="muted">Fastest way: WhatsApp. Prefer email? No problem.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+        <a class="btn" href="https://wa.me/972559907576" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn-ghost" href="mailto:hello@quicklab.example">Email Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot">
+      <div class="logo" style="opacity:.9">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#10cf7a"/><stop offset="100%" stop-color="#0aa15f"/></linearGradient></defs><rect x="8" y="8" width="48" height="48" rx="12" fill="url(#g2)" /><path d="M20 38l8-12 6 8 10-16" stroke="#04281b" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="word">QuickLab</span>
+      </div>
+      <small>© <span id="y"></span> QuickLab. On‑demand lab support in Israel.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
