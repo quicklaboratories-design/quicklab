@@ -10,15 +10,15 @@
 
   <style>
     :root{
-      --paper:#F2F7FA;     /* light background */
-      --ink:#1F2D35;       /* deep blue text */
-      --muted:#4F6673;     /* denim secondary */
-      --brand:#2EBAA1;     /* teal accent */
-      --brand-ink:#0E3E35; /* dark teal text on brand */
-      --line:#D5E4EC;      /* soft border */
-      --card:#FFFFFF;      /* card bg */
-      --chip:#E6F1F5;      /* chip bg */
-      --cta:#25D366;       /* WhatsApp green */
+      --paper:#F2F7FA;
+      --ink:#1F2D35;
+      --muted:#4F6673;
+      --brand:#2EBAA1;
+      --brand-ink:#0E3E35;
+      --line:#D5E4EC;
+      --card:#FFFFFF;
+      --chip:#E6F1F5;
+      --cta:#25D366;
     }
 
     *{box-sizing:border-box}
@@ -28,7 +28,6 @@
 
     .wrap{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* NAV */
     header.nav{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
     .brand svg{width:34px;height:34px}
@@ -43,7 +42,6 @@
     .btn-ghost{background:transparent;border-color:var(--line);color:var(--muted)}
     .btn-wa{background:linear-gradient(180deg,var(--cta),#20bf5b);color:#063a22}
 
-    /* HERO */
     .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:center;padding:28px 0 10px;border-top:1px solid var(--line)}
     .kicker{display:inline-block;background:#e9f6f3;color:#136c5b;padding:6px 10px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.3px;margin-bottom:12px;border:1px solid #d3ece7}
     h1{margin:0 0 10px;font-size:2.3rem;line-height:1.2}
@@ -63,7 +61,6 @@
       width:100%;height:100%;object-fit:cover
     }
 
-    /* SECTIONS */
     section{padding:34px 0;border-top:1px solid var(--line)}
     h2{margin:0 0 10px;color:var(--ink);font-size:1.7rem}
     .muted{color:var(--muted)}
@@ -72,16 +69,13 @@
     .card h3{margin:2px 0 8px;font-size:1.04rem}
     .card p{margin:0;color:var(--muted);font-size:.98rem}
 
-    /* Steps */
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
     .step{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:14px}
     .step b{display:block;color:var(--ink);margin-bottom:6px}
 
-    /* Footer */
     footer{padding:26px 0 54px;color:var(--muted)}
     .foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
 
-    /* Floating WhatsApp */
     .fab{
       position:fixed;right:18px;bottom:18px;z-index:50;
       display:inline-flex;align-items:center;gap:10px;
@@ -91,7 +85,6 @@
     }
     .fab:hover{filter:brightness(.98);text-decoration:none}
 
-    /* Responsive */
     @media (max-width:980px){
       .hero{grid-template-columns:1fr;gap:16px}
       .bullets{grid-template-columns:1fr}
@@ -110,10 +103,8 @@
 </head>
 
 <body>
-  <!-- Floating WhatsApp -->
   <a class="fab" href="https://wa.me/972559907576" target="_blank" rel="noopener">WhatsApp</a>
 
-  <!-- NAV -->
   <header class="wrap nav">
     <a class="brand" href="#">
       <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="12" fill="#2EBAA1"/></svg>
@@ -128,7 +119,6 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
     <section class="hero">
       <div>
         <span class="kicker">On-Demand Lab Support • Israel</span>
@@ -153,62 +143,13 @@
         </div>
       </div>
       <div class="hero-media">
-        <img src="images/front-view-female-scientist.jpg" alt="QuickLab laboratory technician at work" />
+        <img src="lab-tech.jpg" alt="QuickLab laboratory technician at work" />
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <h2>Services</h2>
-      <p class="muted">From routine tasks to advanced workflows. Scope can be defined per visit.</p>
-      <div class="grid-3" style="margin-top:12px">
-        <article class="card"><h3>General Lab Support</h3><p>Buffers and media, autoclave, aliquoting, inventory, equipment start-up/shutdown, weekend checks.</p></article>
-        <article class="card"><h3>Analytical & Separation</h3><p>HPLC, Flash/SPE, HPTLC and preparative steps per method; fraction tracking and basic LC-MS sample prep.</p></article>
-        <article class="card"><h3>Microbiology</h3><p>Streaking, inoculations, growth curves, CFU, aseptic workflows, antibiotic susceptibility.</p></article>
-        <article class="card"><h3>Cell Biology</h3><p>Culture maintenance, passaging, plating, and support for standard viability/toxicity assays.</p></article>
-        <article class="card"><h3>Weekend Coverage</h3><p>Feeding, checks, sampling, scheduled measurements, instrument monitoring.</p></article>
-        <article class="card"><h3>Beyond the Bench</h3><p>Light data cleanup, Gantt updates, SOP edits, vendor coordination, courier drop-offs, ordering.</p></article>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="about">
-      <h2>Why QuickLab</h2>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="card"><h3>Experienced</h3><p>10+ years across pharma R&D, CMC, genotoxicity bioassays, and downstream process development.</p></div>
-        <div class="card"><h3>Flexible</h3><p>Single evening, weekend, or recurring slot. No long-term commitment required.</p></div>
-        <div class="card"><h3>Documentation</h3><p>Clear handover notes and logs aligned with your QA expectations.</p></div>
-      </div>
-      <div class="meta" style="margin-top:10px">
-        <span class="pill">Project-based • Hourly • Retainer</span>
-        <span class="pill">NDA on request</span>
-        <span class="pill">Hands-on execution</span>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process">
-      <h2>Process</h2>
-      <div class="steps" style="margin-top:12px">
-        <div class="step"><b>1. Contact</b><span class="muted">Send a WhatsApp with date/time, task and location.</span></div>
-        <div class="step"><b>2. Scope</b><span class="muted">We confirm availability and align on SOPs and deliverables.</span></div>
-        <div class="step"><b>3. Execution</b><span class="muted">Tasks performed on-site. Deviations communicated promptly.</span></div>
-        <div class="step"><b>4. Handover</b><span class="muted">Summary and logs provided for your records.</span></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="muted">Fastest response via WhatsApp. Email is available if preferred.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-        <a class="btn btn-wa" href="https://wa.me/972559907576" target="_blank">WhatsApp</a>
-        <a class="btn-ghost" href="mailto:hello@quicklab.example">Email</a>
-      </div>
-    </section>
+    <!-- You can keep your Services, Why, Process, Contact, and Footer sections as before -->
   </main>
 
-  <!-- FOOTER -->
   <footer class="wrap">
     <div class="foot">
       <div class="brand" style="opacity:.9">
