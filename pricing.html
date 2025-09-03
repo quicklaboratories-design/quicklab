@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLab Pricing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .pricing-section {
+            max-width: 1040px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .pricing-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #1a202c;
+        }
+        .pricing-section p.intro {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 3em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .plan-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 35px 25px;
+            flex: 1;
+            min-width: 238px;
+            max-width: 264px;
+            text-align: left;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .plan-card h3 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1a202c;
+            font-weight: 600;
+        }
+        .plan-card .price {
+            font-size: 3em;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 5px;
+        }
+        .plan-card .price-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .plan-card .description {
+            font-size: 0.95em;
+            color: #4a5568;
+            margin-bottom: 25px;
+            min-height: 40px;
+        }
+
+        .plan-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        .plan-card li {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+        }
+        .plan-card li::before {
+            content: '✔';
+            color: #25d366;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .popular-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #dd6b20;
+            margin-left: 10px;
+        }
+        .popular-badge::before {
+            content: '🔥';
+            margin-right: 5px;
+        }
+
+        .plan-card.enterprise {
+            background-color: #1a202c;
+            color: #f7fafc;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .plan-card.enterprise h3,
+        .plan-card.enterprise .price {
+            color: #f7fafc;
+        }
+        .plan-card.enterprise .price-info,
+        .plan-card.enterprise .description,
+        .plan-card.enterprise li {
+            color: #a0aec0;
+        }
+        .plan-card.enterprise li::before {
+            color: #81e6d9;
+        }
+
+        .plan-card .button {
+            display: block;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-align: center;
+            background-color: #ffffff;
+            color: #1a73e8;
+            border: 1px solid #e2e8f0;
+        }
+        .plan-card .button:hover {
+            background-color: #1a73e8;
+            color: #ffffff;
+            border-color: #1a73e8;
+        }
+
+        .plan-card.enterprise .button {
+            background-color: #1a73e8;
+            color: white;
+            border-color: #1a73e8;
+        }
+        .plan-card.enterprise .button:hover {
+            background-color: #2c5282;
+            border-color: #2c5282;
+        }
+
+        .included-section {
+            max-width: 600px;
+            margin: 60px auto 40px auto;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 40px;
+        }
+        .included-section h3 {
+            font-size: 1.8em;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        .included-section ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 30px;
+        }
+        .included-section li {
+            font-size: 1em;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            min-width: 200px;
+        }
+        .included-section li::before {
+            content: '✔';
+            color: #25d366;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section h3 {
+            font-size: 2em;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+        .cta-section a.whatsapp-button {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cta-section a.whatsapp-button:hover {
+            background-color: #1eaf53;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan-card {
+                max-width: 500px;
+                width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .included-section ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 20px;
+            }
+            .included-section li {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pricing-section">
+        <h1>Pricing</h1>
+        <p class="intro">
+            Transparent. Flexible. No surprises.<br>
+            QuickLab services are billed according to the scope of work — with clear terms confirmed before each engagement. Choose the model that fits your needs.
+        </p>
+
+        <div class="pricing-plans">
+            <div class="plan-card">
+                <div>
+                    <h3>Hourly</h3>
+                    <p class="price">$0</p>
+                    <p class="price-info">Per hour, billed per service</p>
+                    <p class="description">Ideal for short, well-defined tasks.</p>
+                    <ul>
+                        <li>From ₪XXX per hour (2-hour minimum)</li>
+                        <li>Best for routine lab support, single coverage slots, and urgent assistance</li>
+                        <li>Evenings and weekends available</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/972559907576" class="button">Get started for free</a>
+            </div>
+
+            <div class="plan-card">
+                <div>
+                    <h3>Pro <span class="popular-badge">Popular</span></h3>
+                    <p class="price">$85</p>
+                    <p class="price-info">Per project, billed upon completion</p>
+                    <p class="description">Clear scope, clear budget.</p>
+                    <ul>
+                        <li>Fixed price based on your defined deliverables</li>
+                        <li>Best for analytical runs, culture cycles, or recurring microbiology assays</li>
+                        <li>Includes planning, execution, and documented handover</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/972559907576" class="button">Get started with Pro</a>
+            </div>
+
+            <div class="plan-card enterprise">
+                <div>
+                    <h3>Retainer</h3>
+                    <p class="price">Custom</p>
+                    <p class="price-info">Per month, billed annually</p>
+                    <p class="description">Reliable coverage when you need it most.</p>
+                    <ul>
+                        <li>Dedicated hours reserved weekly or monthly</li>
+                        <li>Best for labs with ongoing evening/weekend needs</li>
+                        <li>Discounted rate compared to hourly booking</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/972559907576" class="button">Get started with Enterprise</a>
+            </div>
+        </div>
+
+        <div class="included-section">
+            <h3>What’s included in every plan?</h3>
+            <ul>
+                <li>GMP-aware execution</li>
+                <li>Strict adherence to your SOPs</li>
+                <li>Safety and biosafety awareness</li>
+                <li>Clear handover notes and documentation</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h3>Request a Quote</h3>
+            <p>Every lab has unique needs. Share your task, timeline, and location, and we’ll provide a tailored quote within 24 hours.</p>
+            <a href="https://wa.me/972559907576" class="whatsapp-button">👉 WhatsApp QuickLab for the fastest response.</a>
+        </div>
+    </div>
+</body>
+</html>
