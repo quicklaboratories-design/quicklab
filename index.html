@@ -4,18 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Fonts: Montserrat (headings) + Roboto (body) -->
+  <!-- Performance: preconnect font domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts: Montserrat (headings), Roboto (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <title>Quick Lab</title>
   <meta name="description" content="Quick Lab — fast, reliable, and professional lab support and services." />
 
-  <!-- Site stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Header / Nav -->
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#home" class="brand">Quick Lab</a>
       <nav aria-label="Primary">
@@ -32,7 +36,10 @@
   <main id="home" class="hero">
     <div class="container hero-inner">
       <h1>Welcome to Quick Lab</h1>
-      <p class="sub">Your solution for fast, reliable lab support — from method setup and purification workflows to on-demand documentation and QA-friendly deliverables.</p>
+      <p class="sub">
+        Your solution for fast, reliable lab support — from method setup and purification workflows
+        to on-demand documentation and QA-friendly deliverables.
+      </p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
         <a class="btn btn-outline" href="#about">Learn more</a>
@@ -40,19 +47,20 @@
     </div>
   </main>
 
-  <!-- About (new, right after hero) -->
+  <!-- About (right after hero) -->
   <section id="about" class="section section-alt">
     <div class="container">
       <h2>About Us</h2>
       <p>
         Quick Lab helps teams move faster in the lab with clean execution and clear documentation.
-        We specialize in assay setup, purification (SPE, flash, prep-HPLC), stability planning,
-        and practical, production-ready SOPs. We speak science <em>and</em> operations so you get results you can trust.
+        We specialize in assay setup, purification (SPE, flash, prep-HPLC), stability planning, and
+        practical, production-ready SOPs. We speak science <em>and</em> operations so you get results
+        you can trust.
       </p>
     </div>
   </section>
 
-  <!-- Services (rebuilt: 3 icon columns) -->
+  <!-- Services (3 icon columns) -->
   <section id="services" class="section">
     <div class="container">
       <h2>Services</h2>
@@ -60,33 +68,33 @@
         <!-- Service 1 -->
         <article class="service">
           <div class="icon" aria-hidden="true">
-            <!-- Lab flask icon (inline SVG) -->
-            <svg viewBox="0 0 24 24" width="40" height="40" role="img">
-              <path d="M9 3h6v2l-1 1v4.535l5.657 7.879A2 2 0 0 1 17.99 22H6.01a2 2 0 0 1-1.667-3.586L10 10.535V6L9 5V3zm2 7.414l-6.364 8.86A.5.5 0 0 0 5.01 20h12.98a.5.5 0 0 0 .374-.826L12 10.414z" />
+            <!-- Flask icon -->
+            <svg viewBox="0 0 24 24" width="40" height="40" role="img" aria-label="Assay & Method Setup">
+              <path d="M9 3h6v2l-1 1v4.535l5.657 7.879A2 2 0 0 1 17.99 22H6.01a2 2 0 0 1-1.667-3.586L10 10.535V6L9 5V3zm2 7.414l-6.364 8.86A.5.5 0 0 0 5.01 20h12.98a.5.5 0 0 0 .374-.826L12 10.414z"/>
             </svg>
           </div>
           <h3>Assay & Method Setup</h3>
-          <p>Design, plate maps, stock calculations, and tidy data handoff. Built to fit your biology and your throughput.</p>
+          <p>Design, plate maps, stock calculations, and tidy data handoff. Built to fit your biology and throughput.</p>
         </article>
 
         <!-- Service 2 -->
         <article class="service">
           <div class="icon" aria-hidden="true">
-            <!-- Chromatography column icon -->
-            <svg viewBox="0 0 24 24" width="40" height="40" role="img">
-              <path d="M7 2h10v2H7V2zm2 4h6v10H9V6zm-2 12h10v2H7v-2zM4 8h2v8H4V8zm14 0h2v8h-2V8z" />
+            <!-- Column icon -->
+            <svg viewBox="0 0 24 24" width="40" height="40" role="img" aria-label="Purification Workflows">
+              <path d="M7 2h10v2H7V2zm2 4h6v10H9V6zm-2 12h10v2H7v-2zM4 8h2v8H4V8zm14 0h2v8h-2V8z"/>
             </svg>
           </div>
           <h3>Purification Workflows</h3>
-          <p>SPE, flash, and prep-HPLC strategies that balance recovery, purity, and speed — with settings you can reproduce.</p>
+          <p>SPE, flash, and prep-HPLC strategies balancing recovery, purity, and speed — with settings you can reproduce.</p>
         </article>
 
         <!-- Service 3 -->
         <article class="service">
           <div class="icon" aria-hidden="true">
-            <!-- Clipboard/check icon -->
-            <svg viewBox="0 0 24 24" width="40" height="40" role="img">
-              <path d="M9 2h6a2 2 0 0 1 2 2h2a1 1 0 0 1 1 1v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1h2a2 2 0 0 1 2-2zm0 2v2h6V4H9zm1.293 9.293 1.414 1.414L18 9.414l-1.414-1.414-4.879 4.879-1.293-1.293L9 12.586z" />
+            <!-- Clipboard check icon -->
+            <svg viewBox="0 0 24 24" width="40" height="40" role="img" aria-label="Docs & QA-Ready Outputs">
+              <path d="M9 2h6a2 2 0 0 1 2 2h2a1 1 0 0 1 1 1v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1h2a2 2 0 0 1 2-2zm0 2v2h6V4H9zm1.293 9.293 1.414 1.414L18 9.414l-1.414-1.414-4.879 4.879-1.293-1.293L9 12.586z"/>
             </svg>
           </div>
           <h3>Docs & QA-Ready Outputs</h3>
@@ -96,7 +104,7 @@
     </div>
   </section>
 
-  <!-- Contact (with form, replaces WhatsApp button) -->
+  <!-- Contact (with form) -->
   <section id="contact" class="section section-alt">
     <div class="container">
       <h2>Contact</h2>
@@ -123,12 +131,12 @@
         </div>
 
         <button class="btn" type="submit">Send message</button>
-        <!-- If you want this to actually submit somewhere, set `action` to your handler/Netlify/Formspree etc. -->
+        <!-- To enable real submissions: set `action` to your endpoint (e.g., Formspree/Netlify). -->
       </form>
     </div>
   </section>
 
-  <!-- Footer with text links -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="copy">© <span id="year"></span> Quick Lab. All rights reserved.</p>
@@ -142,9 +150,7 @@
     </div>
   </footer>
 
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- JS (uses scrollspy + footer year + basic form handling) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
