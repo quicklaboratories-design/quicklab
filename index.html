@@ -6,12 +6,15 @@
   <title>Quick Lab</title>
   <meta name="description" content="Quick Lab — fast, reliable lab support and clear documentation." />
 
-  <!-- Performance: preconnect fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Headings: Plus Jakarta Sans | Body: Inter | Hebrew: Rubik -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Fonts: Montserrat (headings), Roboto (body), Heebo (Hebrew) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Leaflet (fallback map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin="anonymous" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -62,7 +65,7 @@
     </div>
   </section>
 
-  <!-- Services (single-column, no cards/icons) -->
+  <!-- Services -->
   <section id="services" class="section">
     <div class="container">
       <h2 data-i18n="services.title">Services</h2>
@@ -89,7 +92,7 @@
     </div>
   </section>
 
-  <!-- Locations (Google Map) -->
+  <!-- Locations (Map) -->
   <section id="locations" class="section">
     <div class="container">
       <h2 data-i18n="locations.title">Locations</h2>
@@ -143,10 +146,10 @@
     </div>
   </footer>
 
-  <!-- App JS -->
-  <script src="script.js" defer></script>
+  <!-- App JS (after Leaflet) -->
+  <script defer src="script.js"></script>
 
-  <!-- Google Maps: replace YOUR_API_KEY -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+  <!-- Google Maps (optional; replace YOUR_GOOGLE_MAPS_API_KEY) -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
 </body>
 </html>
