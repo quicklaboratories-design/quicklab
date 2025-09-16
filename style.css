@@ -42,9 +42,6 @@ p{ margin: 0 0 14px; color: var(--muted); }
 
 .container{
   width: 100%;
-  max-width: --var;
-}
-.container{
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 20px;
