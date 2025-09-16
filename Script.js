@@ -1,4 +1,4 @@
-// Minimalist Quick Lab — i18n + year + scrollspy + contact form + Google Map
+// Minimalist Quick Lab — Fonts fixed, i18n toggle fixed, map with Google+Leaflet fallback
 (() => {
   "use strict";
 
@@ -81,14 +81,14 @@
   /** Language handling **/
   function applyLanguage(lang){
     const dict = DICT[lang] || DICT.en;
-    $$(".site-header [data-i18n], main [data-i18n], section [data-i18n], footer [data-i18n]").forEach(el=>{
+    $$("[data-i18n]").forEach(el=>{
       const key = el.getAttribute("data-i18n");
-      if (dict[key]) el.textContent = dict[key];
+      if (dict[key] != null) el.textContent = dict[key];
     });
 
     const html = document.documentElement;
-    html.lang = lang === "he" ? "he" : "en";
-    html.dir  = lang === "he" ? "rtl" : "ltr";
+    html.lang = (lang === "he") ? "he" : "en";
+    html.dir  = (lang === "he") ? "rtl" : "ltr";
 
     const toggle = document.getElementById("lang-toggle");
     if (toggle){
@@ -103,27 +103,29 @@
       }
     }
 
-    // Update marker titles if map already exists
+    // Update marker titles if map exists
     if (window.__qlMarkers){
       const titles = lang === "he" ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
-      window.__qlMarkers.jeru.setTitle(titles.jeru);
-      window.__qlMarkers.reh.setTitle(titles.reh);
+      window.__qlMarkers.jeru?.setTitle?.(titles.jeru);
+      window.__qlMarkers.reh?.setTitle?.(titles.reh);
+      // Leaflet markers: update popups if present
+      if (window.__qlMarkers.jeruPopup) window.__qlMarkers.jeru.bindPopup(titles.jeru);
+      if (window.__qlMarkers.rehPopup)  window.__qlMarkers.reh.bindPopup(titles.reh);
     }
   }
 
   function initLang(){
     const saved = localStorage.getItem("qlang");
-    applyLanguage(saved === "he" ? "he" : "en");
+    const initial = (saved === "he") ? "he" : "en";
+    applyLanguage(initial);
 
     const toggle = document.getElementById("lang-toggle");
-    if (toggle){
-      toggle.addEventListener("click", ()=>{
-        const current = document.documentElement.lang === "he" ? "he" : "en";
-        const next = current === "he" ? "en" : "he";
-        localStorage.setItem("qlang", next);
-        applyLanguage(next);
-      });
-    }
+    toggle?.addEventListener("click", ()=>{
+      const current = document.documentElement.lang === "he" ? "he" : "en";
+      const next = current === "he" ? "en" : "he";
+      localStorage.setItem("qlang", next);
+      applyLanguage(next);
+    });
   }
 
   /** Footer year **/
@@ -132,7 +134,7 @@
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /** Minimal scrollspy (underline active link via .is-active) **/
+  /** Minimal scrollspy **/
   function initScrollspy(){
     const sections = $$("main[id], section[id]");
     const links = $$(".site-header .nav a");
@@ -153,7 +155,6 @@
 
     sections.forEach(s=>io.observe(s));
 
-    // Smooth scroll fallback
     links.forEach((a)=>{
       a.addEventListener("click", (e)=>{
         const hash = a.getAttribute("href");
@@ -167,7 +168,7 @@
     });
   }
 
-  /** Contact form (basic validation; add action URL to enable real submit) **/
+  /** Contact form **/
   function initForm(){
     const form = document.querySelector(".contact-form");
     if (!form) return;
@@ -220,13 +221,48 @@
     });
   }
 
-  /** Google Map with markers **/
-  window.initMap = function initMap(){
+  /** Map: Google if available, otherwise Leaflet (OSM) fallback **/
+  function initLeaflet(){
+    if (!window.L) return; // Leaflet not loaded
+    const mapEl = document.getElementById("map");
+    if (!mapEl) return;
+
+    const jerusalem = [31.7683, 35.2137];
+    const rehovot  = [31.8947, 34.8113];
+
+    const map = L.map(mapEl, { scrollWheelZoom: true });
+    const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors"
+    });
+    tiles.addTo(map);
+
+    const group = L.featureGroup();
+    const isHe = document.documentElement.lang === "he";
+    const titles = isHe ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
+
+    const m1 = L.marker(jerusalem).addTo(group).bindPopup(titles.jeru);
+    const m2 = L.marker(rehovot).addTo(group).bindPopup(titles.reh);
+
+    group.addTo(map);
+    map.fitBounds(group.getBounds().pad(0.25));
+
+    // store refs (and popup flags for i18n updates)
+    window.__qlMarkers = {
+      jeru: m1, reh: m2,
+      jeruPopup: true, rehPopup: true
+    };
+    window.__qlMap = map;
+    window.__mapReady = true;
+  }
+
+  // Called by Google Maps if it loads successfully
+  window.initMap = function(){
     try{
+      const mapEl = document.getElementById("map");
+      if (!mapEl || !window.google || !google.maps) return;
+
       const jerusalem = { lat: 31.7683, lng: 35.2137 };
       const rehovot  = { lat: 31.8947, lng: 34.8113 };
-      const mapEl = document.getElementById("map");
-      if (!mapEl) return;
 
       const map = new google.maps.Map(mapEl, {
         center: { lat: 31.83, lng: 35.02 },
@@ -241,16 +277,24 @@
       const m2 = new google.maps.Marker({ position: rehovot,  map, title: titles.reh });
 
       const bounds = new google.maps.LatLngBounds();
-      bounds.extend(jerusalem);
-      bounds.extend(rehovot);
+      bounds.extend(jerusalem); bounds.extend(rehovot);
       map.fitBounds(bounds);
 
       window.__qlMap = map;
       window.__qlMarkers = { jeru: m1, reh: m2 };
+      window.__mapReady = true;
     }catch(e){
-      console.warn("Google Maps failed to initialize:", e);
+      console.warn("Google Maps failed; falling back to Leaflet.", e);
+      initLeaflet();
     }
   };
+
+  function ensureMap(){
+    // If Google didn't call initMap within ~3s, fall back to Leaflet.
+    setTimeout(()=>{
+      if (!window.__mapReady) initLeaflet();
+    }, 3000);
+  }
 
   /** Init **/
   document.addEventListener("DOMContentLoaded", ()=>{
@@ -258,5 +302,6 @@
     initLang();
     initScrollspy();
     initForm();
+    ensureMap();
   });
 })();
