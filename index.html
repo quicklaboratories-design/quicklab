@@ -1,0 +1,161 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+index d8ea47b77c5efbf6397549d8ed8cd6ebe5bfd578..05f2ee9a766b9ba5896a96ca0b18409d8bfa5251 100644
+--- a/index.html
++++ b/index.html
+@@ -132,50 +132,54 @@
+     .hero-media img{width:100%;height:100%;object-fit:cover}
+ 
+     /* Stats (Frontiers shows big numbers; we mirror the pattern) */
+     .stats{
+       display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 0
+     }
+     .stat{
+       background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+       padding:14px 16px;text-align:center
+     }
+     .stat b{display:block;font-size:1.4rem}
+     .stat span{color:var(--muted);font-weight:600}
+ 
+     /* ===== Sections ===== */
+     section{padding:36px 0}
+     h2{margin:0 0 10px;font-size:1.8rem}
+     .muted{color:var(--muted)}
+ 
+     /* Services (cards) */
+     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+     .card{
+       background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+       padding:16px;display:grid;gap:8px
+     }
+     .card h3{margin:0 0 6px}
++    .card .price-tag{
++      font-weight:800;font-size:1.15rem;color:var(--brand-ink)
++    }
++    .card .note{margin:0;color:var(--muted);font-size:.92rem}
+     .list{display:grid;gap:6px;margin:6px 0 0}
+     .list li{color:var(--muted)}
+ 
+     /* Updates / News grid (mirrors Frontiers “News”) */
+     .news{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+     .news .item{
+       background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+     }
+     .news .body{padding:14px}
+     .badge{
+       display:inline-block;font-size:.75rem;font-weight:800;color:#095c4e;
+       background:#e8f6f2;border:1px solid #d4eee7;border-radius:999px;padding:4px 8px;margin-bottom:8px
+     }
+     .item h4{margin:6px 0 6px}
+     .item p{margin:0;color:var(--muted)}
+     .item .meta{margin-top:8px;color:#7a8d97;font-size:.9rem}
+ 
+     /* Newsletter (Frontiers has a signup block) */
+     .newsletter{
+       background:var(--chip);border:1px solid var(--line);border-radius:var(--radius);
+       padding:18px;display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:center
+     }
+     .newsletter form{display:flex;gap:8px}
+     .newsletter input{
+       flex:1;border:1px solid var(--line);border-radius:999px;padding:12px 14px;font-size:1rem
+diff --git a/index.html b/index.html
+index d8ea47b77c5efbf6397549d8ed8cd6ebe5bfd578..05f2ee9a766b9ba5896a96ca0b18409d8bfa5251 100644
+--- a/index.html
++++ b/index.html
+@@ -393,50 +397,93 @@
+   <!-- Process -->
+   <section id="process" style="background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+     <div class="wrap">
+       <h2>Process</h2>
+       <div class="cards" style="margin-top:12px">
+         <article class="card"><h3>1. Contact</h3><p>Message on WhatsApp with date, time, location, and task.</p></article>
+         <article class="card"><h3>2. Scope</h3><p>Confirm SOPs, materials, and deliverables. Share any forms or templates.</p></article>
+         <article class="card"><h3>3. Execute</h3><p>On-site work performed as scoped. Deviations flagged early.</p></article>
+         <article class="card"><h3>4. Handover</h3><p>Summary and logs provided for your records and QA.</p></article>
+       </div>
+     </div>
+   </section>
+ 
+   <!-- Coverage & Pricing -->
+   <section id="coverage">
+     <div class="wrap">
+       <h2>Coverage &amp; pricing</h2>
+       <div class="cards" style="margin-top:12px">
+         <article class="card"><h3>Locations</h3><p>Jerusalem, Tel Aviv, Rehovot, Haifa. Other locations on request.</p></article>
+         <article class="card"><h3>Hours</h3><p>Evenings and weekends by default; weekday coverage on request.</p></article>
+         <article class="card"><h3>Pricing</h3><p>Hourly, project, or retainer. Scope and rate confirmed before each engagement.</p></article>
+       </div>
+     </div>
+   </section>
+ 
++  <!-- Pricing detail -->
++  <section id="pricing" style="border-top:1px solid var(--line)">
++    <div class="wrap">
++      <h2>Pricing</h2>
++      <p class="muted">Transparent options for one-off visits or ongoing coverage. Quotes shared in writing before work begins.</p>
++
++      <div class="cards" style="margin-top:12px">
++        <article class="card">
++          <h3>Per-visit coverage</h3>
++          <div class="price-tag">Scope-confirmed quote</div>
++          <p class="note">Ideal for single evening or weekend tasks.</p>
++          <ul class="list">
++            <li>Includes travel within coverage cities</li>
++            <li>Minimum booking of two hours</li>
++            <li>Consumables billed at cost if supplied</li>
++          </ul>
++        </article>
++
++        <article class="card">
++          <h3>Recurring support</h3>
++          <div class="price-tag">Preferred scheduling</div>
++          <p class="note">Reserved slots for teams needing weekly or biweekly assistance.</p>
++          <ul class="list">
++            <li>Discounted rates for repeat work</li>
++            <li>Standardized handover templates</li>
++            <li>Flexible cancellation policy</li>
++          </ul>
++        </article>
++
++        <article class="card">
++          <h3>Retainer</h3>
++          <div class="price-tag">Monthly agreement</div>
++          <p class="note">For organizations requiring standby coverage throughout the month.</p>
++          <ul class="list">
++            <li>Priority access to technicians</li>
++            <li>Monthly utilization reports</li>
++            <li>Optional instrument monitoring</li>
++          </ul>
++        </article>
++      </div>
++    </div>
++  </section>
++
+   <!-- Updates / News -->
+   <section id="updates" style="background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+     <div class="wrap">
+       <h2>Updates</h2>
+       <p class="muted">Operational notes, small case studies, and coverage changes.</p>
+ 
+       <div class="news" style="margin-top:12px">
+         <article class="item">
+           <div class="body">
+             <span class="badge">Coverage</span>
+             <h4>Additional Friday evening slots</h4>
+             <p>We added limited Friday 18:00–22:00 coverage in Jerusalem and Tel Aviv.</p>
+             <div class="meta">August 2025</div>
+           </div>
+         </article>
+ 
+         <article class="item">
+           <div class="body">
+             <span class="badge">Process</span>
+             <h4>Standardized handover template</h4>
+             <p>Concise PDF/CSV summary format available on request for repeat tasks.</p>
+             <div class="meta">July 2025</div>
+           </div>
+         </article>
+ 
+ 
+EOF
+)
