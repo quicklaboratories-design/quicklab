@@ -1,4 +1,4 @@
-// Minimalist Quick Lab — Fonts fixed, i18n toggle fixed, map with Google+Leaflet fallback
+// Scientist-style inspired template (original). i18n toggle + map (Google with Leaflet fallback) + minimal UX helpers.
 (() => {
   "use strict";
 
@@ -11,29 +11,47 @@
       "nav.services": "Services",
       "nav.locations": "Locations",
       "nav.contact": "Contact",
-      "hero.title": "Welcome to Quick Lab",
-      "hero.sub":
-        "Your solution for fast, reliable lab support — from method setup and purification workflows to on-demand documentation and QA-friendly deliverables.",
-      "hero.cta1": "Contact",
+
+      "hero.title": "A simpler way to run R&D work",
+      "hero.sub": "Request services, compare proposals, and get results with clean documentation — all in one place.",
+      "hero.cta1": "Get Started",
       "hero.cta2": "Learn More",
-      "about.title": "About Us",
-      "about.body":
-        "Quick Lab helps teams move faster in the lab with clean execution and clear documentation. We specialize in assay setup, purification (SPE, flash, prep-HPLC), stability planning, and practical, production-ready SOPs. We speak science and operations so you get results you can trust.",
+
+      "stats.days": "days avg. to proposals",
+      "stats.savings": "average savings",
+      "stats.suppliers": "pre-qualified suppliers",
+
+      "trust.title": "Trusted by leading teams",
+
+      "about.title": "About",
+      "about.body": "Quick Lab helps teams move faster in the lab with clear handoffs and reproducible results. We streamline sourcing, tracking, and documentation so scientists can focus on science.",
+
       "services.title": "Services",
       "services.s1.title": "Assay & Method Setup",
-      "services.s1.body": "Design, plate maps, stock calculations, and tidy data handoff. Built to fit your biology and throughput.",
+      "services.s1.body": "Design, plate maps, stock calculations, and tidy data handoff.",
       "services.s2.title": "Purification Workflows",
-      "services.s2.body": "SPE, flash, and prep-HPLC strategies balancing recovery, purity, and speed — with settings you can reproduce.",
+      "services.s2.body": "SPE, flash, and prep-HPLC strategies with reproducible parameters.",
       "services.s3.title": "Docs & QA-Ready Outputs",
-      "services.s3.body": "Concise SOPs, stability plans, and result summaries tailored for stakeholders, reviewers, and auditors.",
+      "services.s3.body": "Concise SOPs, stability plans, and summaries for reviewers.",
+
+      "process.title": "How it works",
+      "process.s1.title": "Request",
+      "process.s1.body": "Describe your study and requirements.",
+      "process.s2.title": "Compare",
+      "process.s2.body": "Review proposals and timelines.",
+      "process.s3.title": "Run",
+      "process.s3.body": "Track progress and receive clean deliverables.",
+
       "locations.title": "Locations",
-      "locations.note": "Map shows our availability around Jerusalem and Rehovot.",
+      "locations.note": "Active around Jerusalem and Rehovot.",
+
       "contact.title": "Contact",
       "contact.name": "Name",
       "contact.email": "Email",
       "contact.subject": "Subject",
       "contact.message": "Message",
       "contact.submit": "Submit",
+
       "footer.rights": "All rights reserved.",
       "social.twitter": "Twitter",
       "social.linkedin": "LinkedIn",
@@ -46,29 +64,47 @@
       "nav.services": "שירותים",
       "nav.locations": "מיקומים",
       "nav.contact": "יצירת קשר",
-      "hero.title": "ברוכים הבאים ל-Quick Lab",
-      "hero.sub":
-        "הפתרון שלכם לתמיכה מהירה ואמינה במעבדה — מהקמת שיטות וזרימות ניקוי ועד תיעוד מסודר ותוצרים מוכנים לביקורת.",
-      "hero.cta1": "יצירת קשר",
+
+      "hero.title": "דרך פשוטה יותר להפעיל עבודת מו״פ",
+      "hero.sub": "מבקשים שירותים, משווים הצעות ומקבלים תוצאות עם תיעוד מסודר — הכול במקום אחד.",
+      "hero.cta1": "התחילו",
       "hero.cta2": "למדו עוד",
+
+      "stats.days": "ימים בממוצע עד קבלת הצעות",
+      "stats.savings": "חיסכון ממוצע",
+      "stats.suppliers": "ספקים מאומתים",
+
+      "trust.title": "נאמנים על ידי צוותים מובילים",
+
       "about.title": "אודות",
-      "about.body":
-        "Quick Lab מסייעת לצוותים לנוע מהר יותר במעבדה עם ביצוע נקי ותיעוד ברור. אנו מתמחים בהקמת מבחנים, ניקוי (SPE, פלאש, HPLC פרפ.), תכנון יציבות ו-SOPים פרקטיים ומוכנים לייצור. אנחנו מדברים מדע ותפעול — כדי שתקבלו תוצאות שאפשר לסמוך עליהן.",
+      "about.body": "Quick Lab מסייעת לצוותים לנוע מהר יותר במעבדה עם מסירות מסודרות ותוצאות ניתנות לשחזור. אנחנו מפשטים רכש, מעקב ותיעוד כדי שהמדענים יתמקדו במדע.",
+
       "services.title": "שירותים",
       "services.s1.title": "הקמת מבחנים ושיטות",
-      "services.s1.body": "תכנון, מפות בארים, חישובי סטוקים והעברת נתונים מסודרת — מותאם לביולוגיה ולתפוקה שלכם.",
+      "services.s1.body": "תכנון, מפות בארים, חישובי סטוקים והעברת נתונים מסודרת.",
       "services.s2.title": "זרימות ניקוי",
-      "services.s2.body": "אסטרטגיות SPE, פלאש ו-HPLC פרפ. שמאזנות תשואה, ניקיון ומהירות — עם פרמטרים ניתנים לשחזור.",
+      "services.s2.body": "אסטרטגיות SPE, פלאש ו-HPLC פרפ. עם פרמטרים ניתנים לשחזור.",
       "services.s3.title": "מסמכים ותוצרים מוכנים ל-QA",
-      "services.s3.body": "SOPים תמציתיים, תוכניות יציבות וסיכומי תוצאות המותאמים לבעלי עניין, סוקרים ומבקרים.",
+      "services.s3.body": "SOPים תמציתיים, תוכניות יציבות וסיכומים למבקרים.",
+
+      "process.title": "איך זה עובד",
+      "process.s1.title": "בקשה",
+      "process.s1.body": "תארו את המחקר והדרישות.",
+      "process.s2.title": "השוואה",
+      "process.s2.body": "בדקו הצעות ולוחות זמנים.",
+      "process.s3.title": "ביצוע",
+      "process.s3.body": "עקבו אחר התקדמות וקבלו תוצרים מסודרים.",
+
       "locations.title": "מיקומים",
-      "locations.note": "המפה מציגה זמינות סביב ירושלים ורחובות.",
+      "locations.note": "פעילים סביב ירושלים ורחובות.",
+
       "contact.title": "יצירת קשר",
       "contact.name": "שם",
       "contact.email": "אימייל",
       "contact.subject": "נושא",
       "contact.message": "הודעה",
       "contact.submit": "שליחה",
+
       "footer.rights": "כל הזכויות שמורות.",
       "social.twitter": "Twitter",
       "social.linkedin": "LinkedIn",
@@ -106,9 +142,10 @@
     // Update marker titles if map exists
     if (window.__qlMarkers){
       const titles = lang === "he" ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
+      // Google
       window.__qlMarkers.jeru?.setTitle?.(titles.jeru);
       window.__qlMarkers.reh?.setTitle?.(titles.reh);
-      // Leaflet markers: update popups if present
+      // Leaflet popups
       if (window.__qlMarkers.jeruPopup) window.__qlMarkers.jeru.bindPopup(titles.jeru);
       if (window.__qlMarkers.rehPopup)  window.__qlMarkers.reh.bindPopup(titles.reh);
     }
@@ -231,10 +268,9 @@
     const rehovot  = [31.8947, 34.8113];
 
     const map = L.map(mapEl, { scrollWheelZoom: true });
-    const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors"
-    });
-    tiles.addTo(map);
+    }).addTo(map);
 
     const group = L.featureGroup();
     const isHe = document.documentElement.lang === "he";
@@ -246,11 +282,8 @@
     group.addTo(map);
     map.fitBounds(group.getBounds().pad(0.25));
 
-    // store refs (and popup flags for i18n updates)
-    window.__qlMarkers = {
-      jeru: m1, reh: m2,
-      jeruPopup: true, rehPopup: true
-    };
+    // store refs for i18n updates
+    window.__qlMarkers = { jeru: m1, reh: m2, jeruPopup: true, rehPopup: true };
     window.__qlMap = map;
     window.__mapReady = true;
   }
