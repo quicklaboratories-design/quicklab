@@ -1,96 +1,116 @@
-// Minimalist Quick Lab — original build. i18n toggle + year + scrollspy + contact form + Leaflet map.
 (() => {
   "use strict";
 
-  /*** i18n dictionary ***/
-  const DICT = {
+  const translations = {
     en: {
-      "brand": "Quick Lab",
+      "brand": "NexiaBridge",
+      "skip": "Skip to main content",
       "nav.home": "Home",
       "nav.about": "About",
       "nav.services": "Services",
+      "nav.process": "Process",
       "nav.locations": "Locations",
       "nav.contact": "Contact",
-
-      "hero.title": "On-Demand Lab Services, Minimal Hassle",
-      "hero.sub": "Request work, review proposals, and receive clean, QA-ready deliverables — all in one simple flow.",
-      "hero.cta1": "Start",
-      "hero.cta2": "Learn More",
-
-      "vp.1.t": "Fast turnarounds",
-      "vp.1.d": "Get proposals quickly and move experiments forward without waiting.",
-      "vp.2.t": "Reproducible outputs",
-      "vp.2.d": "SOPs, data, and summaries you can hand to stakeholders immediately.",
-      "vp.3.t": "Clear pricing",
-      "vp.3.d": "Simple estimates that make procurement painless.",
-
+      "toggle.label": "HEB / עב",
+      "toggle.aria": "Switch language to Hebrew",
+      "hero.title": "Bring external science online with total clarity.",
+      "hero.lead": "NexiaBridge orchestrates sourcing, compliance, and delivery so your R&D teams can activate new lab capacity without the administrative drag.",
+      "hero.ctaPrimary": "Start",
+      "hero.ctaSecondary": "Learn More",
+      "trust.lead": "Trusted by teams focused on translational breakthroughs.",
+      "trust.item1": "Company A",
+      "trust.item2": "Company B",
+      "trust.item3": "Company C",
+      "trust.item4": "Company D",
       "about.title": "About",
-      "about.body": "We streamline assay setup, purification (SPE, flash, prep-HPLC), stability planning, and tidy documentation. Our focus is predictable execution and deliverables ready for review.",
-
+      "about.body": "NexiaBridge is a curated marketplace bridging discovery leaders with audited research partners. We keep diligence, secure contracting, and reporting inside one traceable workspace so every stakeholder stays aligned.",
       "services.title": "Services",
-      "services.s1.title": "Assay & Method Setup",
-      "services.s1.body": "Design, plate maps, stock calculations, and tidy data handoff.",
-      "services.s2.title": "Purification Workflows",
-      "services.s2.body": "SPE, flash, and prep-HPLC with reproducible parameters.",
-      "services.s3.title": "Docs & QA-Ready Outputs",
-      "services.s3.body": "Concise SOPs, stability plans, and summaries for reviewers.",
-
+      "services.1.title": "Sourcing Strategy",
+      "services.1.body": "Scope your need, align compliance criteria, and surface the right labs within hours.",
+      "services.2.title": "Quality Routing",
+      "services.2.body": "Compare documentation, safety credentials, and run histories before you commit.",
+      "services.3.title": "Delivery Oversight",
+      "services.3.body": "Track milestones, samples, and data packages from kickoff to submission.",
+      "process.title": "Process",
+      "process.1.title": "Request",
+      "process.1.body": "Submit a structured brief and governance guardrails.",
+      "process.2.title": "Compare",
+      "process.2.body": "Review curated lab responses, pricing, and compliance fit.",
+      "process.3.title": "Run",
+      "process.3.body": "Launch the selected program with automated updates and final reports.",
       "locations.title": "Locations",
-      "locations.note": "Active around Jerusalem and Rehovot.",
-
+      "locations.note": "Regional coordination from Jerusalem and Rehovot.",
+      "map.jerusalem": "Jerusalem",
+      "map.rehovot": "Rehovot",
       "contact.title": "Contact",
+      "contact.intro": "Tell us about your upcoming program and we'll assemble the right collaborators.",
       "contact.name": "Name",
       "contact.email": "Email",
       "contact.subject": "Subject",
       "contact.message": "Message",
       "contact.submit": "Submit",
-
+      "status.invalid": "Please fill all required fields.",
+      "status.demo": "Demo mode: add an action URL to enable sending.",
+      "status.success": "Thanks! Your message was sent.",
+      "status.error": "Could not send. Please try again.",
+      "status.network": "Network error. Check your connection and try again.",
       "footer.rights": "All rights reserved.",
       "social.twitter": "Twitter",
       "social.linkedin": "LinkedIn",
       "social.github": "GitHub"
     },
     he: {
-      "brand": "Quick Lab",
+      "brand": "NexiaBridge",
+      "skip": "דלגו לתוכן הראשי",
       "nav.home": "בית",
       "nav.about": "אודות",
       "nav.services": "שירותים",
+      "nav.process": "תהליך",
       "nav.locations": "מיקומים",
       "nav.contact": "יצירת קשר",
-
-      "hero.title": "שירותי מעבדה לפי דרישה — בלי כאב ראש",
-      "hero.sub": "מבקשים עבודה, בודקים הצעות ומקבלים תוצרים נקיים ומוכנים ל-QA — בתהליך פשוט אחד.",
-      "hero.cta1": "התחילו",
-      "hero.cta2": "למדו עוד",
-
-      "vp.1.t": "זמני תגובה מהירים",
-      "vp.1.d": "מקבלים הצעות במהירות ומקדמים ניסויים בלי לחכות.",
-      "vp.2.t": "תוצרים ניתנים לשחזור",
-      "vp.2.d": "‏SOPים, נתונים וסיכומים שמוכנים להציג לבעלי עניין.",
-      "vp.3.t": "תמחור ברור",
-      "vp.3.d": "הערכות פשוטות שמקלות על הרכש.",
-
+      "toggle.label": "ENG / אנג",
+      "toggle.aria": "החלפת שפה לאנגלית",
+      "hero.title": "חיבורים מדעיים דיגיטליים עם שקיפות מלאה.",
+      "hero.lead": "NexiaBridge מתזמרת רכש, ציות והעברת תוצרים כך שצוותי המו\"פ יפעילו קיבולת מעבדה חדשה בלי העומס האדמיניסטרטיבי.",
+      "hero.ctaPrimary": "התחלה",
+      "hero.ctaSecondary": "מידע נוסף",
+      "trust.lead": "צוותים שבחרו בנו:",
+      "trust.item1": "חברה א'",
+      "trust.item2": "חברה ב'",
+      "trust.item3": "חברה ג'",
+      "trust.item4": "חברה ד'",
       "about.title": "אודות",
-      "about.body": "אנחנו מפשטים הקמת מבחנים, ניקוי (SPE, פלאש, HPLC פרפ.), תכנון יציבות ותיעוד מסודר. המיקוד הוא ביצוע צפוי ותוצרים מוכנים לביקורת.",
-
+      "about.body": "NexiaBridge היא זירת תיווך אוצרת שמקשרת צוותי גילוי עם שותפי מחקר מבוקרים. אנו מרכזים בדיקות נאותות, הסכמים מאובטחים ודיווח בתיק עבודה אחד כך שכל בעלי העניין נשארים מסונכרנים.",
       "services.title": "שירותים",
-      "services.s1.title": "הקמת מבחנים ושיטות",
-      "services.s1.body": "תכנון, מפות בארים, חישובי סטוקים והעברת נתונים מסודרת.",
-      "services.s2.title": "זרימות ניקוי",
-      "services.s2.body": "‏SPE, פלאש ו-HPLC פרפ. עם פרמטרים ניתנים לשחזור.",
-      "services.s3.title": "מסמכים ותוצרים מוכנים ל-QA",
-      "services.s3.body": "‏SOPים תמציתיים, תוכניות יציבות וסיכומים למבקרים.",
-
+      "services.1.title": "אסטרטגיית איתור",
+      "services.1.body": "מגדירים צורך, מיישרים קריטריוני ציות ומוצאים מעבדות מתאימות בתוך שעות.",
+      "services.2.title": "נתיבי איכות",
+      "services.2.body": "משווים מסמכים, אישורי בטיחות והיסטוריות ריצה לפני שמתחייבים.",
+      "services.3.title": "פיקוח אספקה",
+      "services.3.body": "עוקבים אחר אבני דרך, דגימות וחבילות נתונים מההתחלה ועד למסירה.",
+      "process.title": "תהליך",
+      "process.1.title": "בקשה",
+      "process.1.body": "מגישים תקציר מובנה והנחיות ממשליות.",
+      "process.2.title": "השוואה",
+      "process.2.body": "בודקים תגובות מעבדה, תמחור והתאמה רגולטורית.",
+      "process.3.title": "הפעלה",
+      "process.3.body": "מוציאים לדרך את התכנית עם עדכונים ודוחות אוטומטיים.",
       "locations.title": "מיקומים",
-      "locations.note": "פעילים סביב ירושלים ורחובות.",
-
+      "locations.note": "תיאום אזורי מירושלים ומרחובות.",
+      "map.jerusalem": "ירושלים",
+      "map.rehovot": "רחובות",
       "contact.title": "יצירת קשר",
+      "contact.intro": "ספרו לנו על התכנית הקרובה ונרכיב את שיתוף הפעולה הנכון.",
       "contact.name": "שם",
       "contact.email": "אימייל",
       "contact.subject": "נושא",
       "contact.message": "הודעה",
       "contact.submit": "שליחה",
-
+      "status.invalid": "אנא מלאו את כל השדות הנדרשים.",
+      "status.demo": "מצב הדגמה: הוסיפו כתובת action כדי לאפשר שליחה.",
+      "status.success": "תודה! ההודעה נשלחה.",
+      "status.error": "לא ניתן לשלוח. נסו שוב.",
+      "status.network": "שגיאת רשת. בדקו את החיבור ונסו שוב.",
       "footer.rights": "כל הזכויות שמורות.",
       "social.twitter": "Twitter",
       "social.linkedin": "LinkedIn",
@@ -98,182 +118,305 @@
     }
   };
 
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const storageKey = "nexiabridge-language";
+  const mapContext = { map: null, markers: {} };
+  let currentLang = "en";
+  let formStatusEl = null;
 
-  /** Language handling **/
-  function applyLanguage(lang){
-    const dict = DICT[lang] || DICT.en;
-    $$("[data-i18n]").forEach(el=>{
-      const key = el.getAttribute("data-i18n");
-      if (dict[key] != null) el.textContent = dict[key];
-    });
+  const hasStorage = (() => {
+    try {
+      const testKey = "__nexia_test";
+      window.localStorage.setItem(testKey, testKey);
+      window.localStorage.removeItem(testKey);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  })();
 
+  const getTranslation = (lang, key) => {
+    const dict = translations[lang] || translations.en;
+    if (dict && Object.prototype.hasOwnProperty.call(dict, key)) {
+      return dict[key];
+    }
+    const fallback = translations.en[key];
+    return fallback != null ? fallback : key;
+  };
+
+  const updateDocumentLanguage = () => {
     const html = document.documentElement;
-    html.lang = (lang === "he") ? "he" : "en";
-    html.dir  = (lang === "he") ? "rtl" : "ltr";
+    html.lang = currentLang === "he" ? "he" : "en";
+    html.dir = currentLang === "he" ? "rtl" : "ltr";
+    document.body.classList.toggle("lang-he", currentLang === "he");
+  };
 
-    const toggle = document.getElementById("lang-toggle");
-    if (toggle){
-      if (lang === "he"){
-        toggle.textContent = "ENG / אנ";
-        toggle.setAttribute("aria-label", "Switch language to English");
-        toggle.setAttribute("aria-pressed", "true");
-      } else {
-        toggle.textContent = "HEB / עב";
-        toggle.setAttribute("aria-label", "Switch language to Hebrew");
-        toggle.setAttribute("aria-pressed", "false");
+  const applyLanguage = () => {
+    updateDocumentLanguage();
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+      const value = getTranslation(currentLang, key);
+      if (value != null) {
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.setAttribute("placeholder", value);
+        } else {
+          el.textContent = value;
+        }
       }
-    }
-
-    // Update marker titles if map exists (Leaflet)
-    if (window.__qlMarkers){
-      const titles = lang === "he" ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
-      window.__qlMarkers.jeru.bindPopup(titles.jeru);
-      window.__qlMarkers.reh.bindPopup(titles.reh);
-    }
-  }
-
-  function initLang(){
-    const saved = localStorage.getItem("qlang");
-    const initial = (saved === "he") ? "he" : "en";
-    applyLanguage(initial);
+    });
 
     const toggle = document.getElementById("lang-toggle");
-    toggle?.addEventListener("click", ()=>{
-      const current = document.documentElement.lang === "he" ? "he" : "en";
-      const next = current === "he" ? "en" : "he";
-      localStorage.setItem("qlang", next);
-      applyLanguage(next);
-    });
-  }
-
-  /** Footer year **/
-  function setYear(){
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-  }
-
-  /** Minimal scrollspy **/
-  function initScrollspy(){
-    const sections = $$("main[id], section[id]");
-    const links = $$(".site-header .nav a");
-    if (!("IntersectionObserver" in window) || sections.length === 0) return;
-
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach((entry)=>{
-        if (!entry.isIntersecting) return;
-        const id = entry.target.id;
-        links.forEach((a)=>{
-          const active = (a.getAttribute("href") || "").slice(1) === id;
-          a.classList.toggle("is-active", active);
-          if (active) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      });
-    }, { root: null, rootMargin: "-45% 0px -45% 0px", threshold: 0.01 });
-
-    sections.forEach(s=>io.observe(s));
-
-    links.forEach((a)=>{
-      a.addEventListener("click", (e)=>{
-        const hash = a.getAttribute("href");
-        if (!hash || !hash.startsWith("#")) return;
-        const t = document.querySelector(hash);
-        if (!t) return;
-        e.preventDefault();
-        t.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.pushState(null, "", hash);
-      });
-    });
-  }
-
-  /** Contact form **/
-  function initForm(){
-    const form = document.querySelector(".contact-form");
-    if (!form) return;
-
-    let status = form.querySelector(".form-status");
-    if (!status){
-      status = document.createElement("p");
-      status.className = "form-status";
-      status.setAttribute("aria-live", "polite");
-      form.appendChild(status);
+    if (toggle) {
+      toggle.setAttribute("aria-label", getTranslation(currentLang, "toggle.aria"));
+      toggle.setAttribute("aria-pressed", currentLang === "he" ? "true" : "false");
     }
 
-    const setStatus = (msg, type="info")=>{
-      status.textContent = msg;
-      status.dataset.type = type;
+    updateFormStatusLanguage();
+    updateMapLanguage();
+  };
+
+  const setLanguage = (lang) => {
+    currentLang = translations[lang] ? lang : "en";
+    applyLanguage();
+    if (hasStorage) {
+      window.localStorage.setItem(storageKey, currentLang);
+    }
+  };
+
+  const readStoredLanguage = () => {
+    if (!hasStorage) return null;
+    const stored = window.localStorage.getItem(storageKey);
+    return stored && translations[stored] ? stored : null;
+  };
+
+  const prefersReducedMotion = () => {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  };
+
+  const initSmoothScroll = () => {
+    const anchors = Array.from(document.querySelectorAll('a[href^="#"]'));
+    if (!anchors.length) return;
+
+    anchors.forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        const href = anchor.getAttribute("href");
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+        if (history.replaceState) {
+          history.replaceState(null, "", href);
+        }
+      });
+    });
+  };
+
+  const initScrollSpy = () => {
+    const navLinks = Array.from(document.querySelectorAll(".nav a[href^='#']"));
+    if (!navLinks.length) return;
+
+    const sections = navLinks
+      .map((link) => {
+        const selector = link.getAttribute("href");
+        return selector ? document.querySelector(selector) : null;
+      })
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      navLinks.forEach((link) => {
+        const targetId = (link.getAttribute("href") || "").slice(1);
+        const isActive = targetId === id;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
     };
 
-    form.addEventListener("submit", async (ev)=>{
-      ev.preventDefault();
-      if (!form.checkValidity()){
-        const firstInvalid = form.querySelector(":invalid");
-        if (firstInvalid && firstInvalid.focus) firstInvalid.focus();
-        setStatus(document.documentElement.lang === "he" ? "אנא מלאו את כל השדות הנדרשים." : "Please fill all required fields.", "error");
+    if (!sections.length) return;
+
+    setActive(sections[0].id);
+
+    if (!("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-55% 0px -35% 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  };
+
+  const setFormStatusMessage = (key, type = "info") => {
+    if (!formStatusEl) return;
+    if (!key) {
+      formStatusEl.textContent = "";
+      delete formStatusEl.dataset.key;
+      formStatusEl.removeAttribute("data-type");
+      return;
+    }
+    formStatusEl.textContent = getTranslation(currentLang, key);
+    formStatusEl.dataset.key = key;
+    if (type === "info") {
+      formStatusEl.removeAttribute("data-type");
+    } else {
+      formStatusEl.dataset.type = type;
+    }
+  };
+
+  const updateFormStatusLanguage = () => {
+    if (!formStatusEl) return;
+    const key = formStatusEl.dataset.key;
+    if (key) {
+      formStatusEl.textContent = getTranslation(currentLang, key);
+    }
+  };
+
+  const initContactForm = () => {
+    const form = document.querySelector(".contact-form");
+    if (!form) return;
+    formStatusEl = form.querySelector(".form-status");
+    if (formStatusEl) {
+      formStatusEl.textContent = "";
+      formStatusEl.removeAttribute("data-type");
+      delete formStatusEl.dataset.key;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        if (typeof form.reportValidity === "function") {
+          form.reportValidity();
+        }
+        const invalid = form.querySelector(":invalid");
+        if (invalid && typeof invalid.focus === "function") {
+          invalid.focus();
+        }
+        setFormStatusMessage("status.invalid", "error");
         return;
       }
 
       const endpoint = (form.getAttribute("action") || "").trim();
       const method = (form.getAttribute("method") || "POST").toUpperCase();
 
-      if (!endpoint || endpoint === "#"){
-        setStatus(document.documentElement.lang === "he" ? "מצב דמו: הוסיפו כתובת action כדי לאפשר שליחה." : "Demo mode: add an action URL to enable sending.", "info");
+      if (!endpoint || endpoint === "#") {
+        setFormStatusMessage("status.demo", "info");
         return;
       }
 
-      try{
-        const res = await fetch(endpoint, {
+      try {
+        const response = await fetch(endpoint, {
           method,
-          body: new FormData(form),
-          headers: { Accept: "application/json" }
+          body: new FormData(form)
         });
-        if (res.ok){
+        if (response.ok) {
           form.reset();
-          setStatus(document.documentElement.lang === "he" ? "תודה! ההודעה נשלחה." : "Thanks! Your message was sent.", "success");
+          setFormStatusMessage("status.success", "success");
         } else {
-          setStatus(document.documentElement.lang === "he" ? "שגיאה בשליחה. נסו שוב." : "Couldn’t send. Please try again.", "error");
+          setFormStatusMessage("status.error", "error");
         }
-      }catch(_){
-        setStatus(document.documentElement.lang === "he" ? "שגיאת רשת. נסו שוב." : "Network error. Please try again.", "error");
+      } catch (error) {
+        setFormStatusMessage("status.network", "error");
       }
     });
-  }
+  };
 
-  /** Leaflet map (always on; no key needed) **/
-  function initMap(){
-    const mapEl = document.getElementById("map");
-    if (!mapEl || !window.L) return;
+  const initMap = () => {
+    const mapElement = document.getElementById("map");
+    if (!mapElement || typeof L === "undefined") {
+      return;
+    }
 
     const jerusalem = [31.7683, 35.2137];
-    const rehovot  = [31.8947, 34.8113];
+    const rehovot = [31.8947, 34.8113];
 
-    const map = L.map(mapEl, { scrollWheelZoom: true });
+    const map = L.map(mapElement, { scrollWheelZoom: true });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
-    const group = L.featureGroup();
-    const isHe = document.documentElement.lang === "he";
-    const titles = isHe ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
+    const jerusalemMarker = L.marker(jerusalem).addTo(map);
+    const rehovotMarker = L.marker(rehovot).addTo(map);
 
-    const m1 = L.marker(jerusalem).addTo(group).bindPopup(titles.jeru);
-    const m2 = L.marker(rehovot).addTo(group).bindPopup(titles.reh);
+    jerusalemMarker.bindPopup(getTranslation(currentLang, "map.jerusalem"));
+    rehovotMarker.bindPopup(getTranslation(currentLang, "map.rehovot"));
 
-    group.addTo(map);
+    const group = L.featureGroup([jerusalemMarker, rehovotMarker]).addTo(map);
     map.fitBounds(group.getBounds().pad(0.25));
 
-    // store refs for language updates
-    window.__qlMarkers = { jeru: m1, reh: m2 };
-    window.__qlMap = map;
-  }
+    mapContext.map = map;
+    mapContext.markers = {
+      jerusalem: jerusalemMarker,
+      rehovot: rehovotMarker
+    };
+  };
 
-  /** Init **/
-  document.addEventListener("DOMContentLoaded", ()=>{
+  const updateMapLanguage = () => {
+    if (!mapContext.markers.jerusalem || !mapContext.markers.rehovot) {
+      return;
+    }
+    const jerusalemText = getTranslation(currentLang, "map.jerusalem");
+    const rehovotText = getTranslation(currentLang, "map.rehovot");
+
+    const jerusalemPopup = mapContext.markers.jerusalem.getPopup();
+    if (jerusalemPopup) {
+      jerusalemPopup.setContent(jerusalemText);
+    } else {
+      mapContext.markers.jerusalem.bindPopup(jerusalemText);
+    }
+
+    const rehovotPopup = mapContext.markers.rehovot.getPopup();
+    if (rehovotPopup) {
+      rehovotPopup.setContent(rehovotText);
+    } else {
+      mapContext.markers.rehovot.bindPopup(rehovotText);
+    }
+  };
+
+  const setYear = () => {
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = String(new Date().getFullYear());
+    }
+  };
+
+  const initLanguageToggle = () => {
+    const toggle = document.getElementById("lang-toggle");
+    if (!toggle) return;
+    toggle.addEventListener("click", () => {
+      const nextLang = currentLang === "en" ? "he" : "en";
+      setLanguage(nextLang);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const storedLang = readStoredLanguage();
+    if (storedLang) {
+      currentLang = storedLang;
+    }
+
+    applyLanguage();
     setYear();
-    initLang();
-    initScrollspy();
-    initForm();
+    initLanguageToggle();
+    initSmoothScroll();
+    initScrollSpy();
+    initContactForm();
     initMap();
   });
 })();
