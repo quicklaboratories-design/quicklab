@@ -4,17 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quick Lab</title>
-  <meta name="description" content="Quick Lab — fast, reliable lab support and clear documentation." />
+  <meta name="description" content="Quick Lab — modern R&D services with clear docs and simple procurement." />
 
-  <!-- Fonts -->
+  <!-- Fonts: Manrope (EN), Heebo (HE) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Headings: Plus Jakarta Sans | Body: Inter | Hebrew: Rubik -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Leaflet (fallback map) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin="anonymous" />
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin="anonymous"></script>
+  <!-- Leaflet (fallback map if Google Maps is unavailable) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -38,29 +37,43 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Hero -->
   <main id="home" class="section hero">
     <div class="container">
-      <h1 class="hero-title" data-i18n="hero.title">Welcome to Quick Lab</h1>
+      <h1 class="hero-title" data-i18n="hero.title">A simpler way to run R&amp;D work</h1>
       <p class="lead" data-i18n="hero.sub">
-        Your solution for fast, reliable lab support — from method setup and purification workflows
-        to on-demand documentation and QA-friendly deliverables.
+        Request services, compare proposals, and get results with clean documentation — all in one place.
       </p>
       <div class="actions">
-        <a class="btn" href="#contact" data-i18n="hero.cta1">Contact</a>
+        <a class="btn" href="#contact" data-i18n="hero.cta1">Get Started</a>
         <a class="btn btn-ghost" href="#about" data-i18n="hero.cta2">Learn More</a>
       </div>
+      <!-- Slim stats row (inspired layout, original content) -->
+      <ul class="stats">
+        <li><strong>2–3</strong> <span data-i18n="stats.days">days avg. to proposals</span></li>
+        <li><strong>15%</strong> <span data-i18n="stats.savings">average savings</span></li>
+        <li><strong>5,000+</strong> <span data-i18n="stats.suppliers">pre-qualified suppliers</span></li>
+      </ul>
     </div>
   </main>
+
+  <!-- Trust bar (placeholder logos as text blocks for IP safety) -->
+  <section class="section trust">
+    <div class="container">
+      <p class="trust-title" data-i18n="trust.title">Trusted by leading teams</p>
+      <ul class="logo-row">
+        <li>Company A</li><li>Company B</li><li>Company C</li><li>Company D</li><li>Company E</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- About -->
   <section id="about" class="section">
     <div class="container">
-      <h2 data-i18n="about.title">About Us</h2>
+      <h2 data-i18n="about.title">About</h2>
       <p data-i18n="about.body">
-        Quick Lab helps teams move faster in the lab with clean execution and clear documentation.
-        We specialize in assay setup, purification (SPE, flash, prep-HPLC), stability planning, and
-        practical, production-ready SOPs. We speak science and operations so you get results you can trust.
+        Quick Lab helps teams move faster in the lab with clear handoffs and reproducible results.
+        We streamline sourcing, tracking, and documentation so scientists can focus on science.
       </p>
     </div>
   </section>
@@ -72,23 +85,38 @@
       <ul class="list">
         <li>
           <h3 data-i18n="services.s1.title">Assay & Method Setup</h3>
-          <p data-i18n="services.s1.body">
-            Design, plate maps, stock calculations, and tidy data handoff. Built to fit your biology and throughput.
-          </p>
+          <p data-i18n="services.s1.body">Design, plate maps, stock calculations, and tidy data handoff.</p>
         </li>
         <li>
           <h3 data-i18n="services.s2.title">Purification Workflows</h3>
-          <p data-i18n="services.s2.body">
-            SPE, flash, and prep-HPLC strategies balancing recovery, purity, and speed — with settings you can reproduce.
-          </p>
+          <p data-i18n="services.s2.body">SPE, flash, and prep-HPLC strategies with reproducible parameters.</p>
         </li>
         <li>
           <h3 data-i18n="services.s3.title">Docs & QA-Ready Outputs</h3>
-          <p data-i18n="services.s3.body">
-            Concise SOPs, stability plans, and result summaries tailored for stakeholders, reviewers, and auditors.
-          </p>
+          <p data-i18n="services.s3.body">Concise SOPs, stability plans, and summaries for reviewers.</p>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Process (simple three-step) -->
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="process.title">How it works</h2>
+      <ol class="steps">
+        <li>
+          <strong data-i18n="process.s1.title">Request</strong>
+          <span data-i18n="process.s1.body">Describe your study and requirements.</span>
+        </li>
+        <li>
+          <strong data-i18n="process.s2.title">Compare</strong>
+          <span data-i18n="process.s2.body">Review proposals and timelines.</span>
+        </li>
+        <li>
+          <strong data-i18n="process.s3.title">Run</strong>
+          <span data-i18n="process.s3.body">Track progress and receive clean deliverables.</span>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -97,7 +125,7 @@
     <div class="container">
       <h2 data-i18n="locations.title">Locations</h2>
       <div id="map" class="map" aria-label="Map with pins for Jerusalem and Rehovot"></div>
-      <p class="note" data-i18n="locations.note">Map shows our availability around Jerusalem and Rehovot.</p>
+      <p class="note" data-i18n="locations.note">Active around Jerusalem and Rehovot.</p>
     </div>
   </section>
 
@@ -149,7 +177,7 @@
   <!-- App JS (after Leaflet) -->
   <script defer src="script.js"></script>
 
-  <!-- Google Maps (optional; replace YOUR_GOOGLE_MAPS_API_KEY) -->
+  <!-- Optional Google Maps (replace YOUR_GOOGLE_MAPS_API_KEY to enable) -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
 </body>
 </html>
