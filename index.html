@@ -3,151 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quick Lab — On-Demand</title>
-  <meta name="description" content="Quick Lab — on-demand lab services with clear deliverables and simple UX." />
+  <title>NexiaBridge — Research Marketplace</title>
+  <meta name="description" content="NexiaBridge is a curated marketplace connecting R&D leaders with vetted research partners." />
 
-  <!-- Fonts: Noto Sans (supports Hebrew too) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Leaflet (map; no API key required) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
+  <a class="skip-link" href="#home" data-i18n="skip">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="#home" class="brand" data-i18n="brand">Quick Lab</a>
-
-      <nav aria-label="Primary" class="primary-nav">
+      <a class="brand" href="#home" data-i18n="brand">NexiaBridge</a>
+      <nav class="primary-nav" aria-label="Primary">
         <ul class="nav">
           <li><a href="#home" data-i18n="nav.home">Home</a></li>
           <li><a href="#about" data-i18n="nav.about">About</a></li>
           <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#process" data-i18n="nav.process">Process</a></li>
           <li><a href="#locations" data-i18n="nav.locations">Locations</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
-
-      <button id="lang-toggle" class="lang-toggle" aria-pressed="false" aria-label="Switch language to Hebrew">HEB / עב</button>
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-pressed="false" aria-label="Switch language to Hebrew" data-i18n="toggle.label">HEB / עב</button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="section hero">
-    <div class="container">
-      <h1 class="hero-title" data-i18n="hero.title">On-Demand Lab Services, Minimal Hassle</h1>
-      <p class="lead" data-i18n="hero.sub">
-        Request work, review proposals, and receive clean, QA-ready deliverables — all in one simple flow.
-      </p>
-      <div class="actions">
-        <a class="btn" href="#contact" data-i18n="hero.cta1">Start</a>
-        <a class="btn btn-ghost" href="#about" data-i18n="hero.cta2">Learn More</a>
+  <main>
+    <section id="home" class="section hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title" class="hero-title" data-i18n="hero.title">Bring external science online with total clarity.</h1>
+        <p class="lead" data-i18n="hero.lead">NexiaBridge orchestrates sourcing, compliance, and delivery so your R&amp;D teams can activate new lab capacity without the administrative drag.</p>
+        <div class="actions">
+          <a class="btn" href="#contact" data-i18n="hero.ctaPrimary">Start</a>
+          <a class="btn btn-ghost" href="#about" data-i18n="hero.ctaSecondary">Learn More</a>
+        </div>
+        <div class="hero-motif" aria-hidden="true">
+          <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg" role="presentation">
+            <g fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 30h60c16 0 20-20 36-20s20 20 36 20 20-20 36-20 20 20 36 20h60" />
+              <circle cx="60" cy="20" r="3" />
+              <circle cx="120" cy="12" r="3" />
+              <circle cx="180" cy="20" r="3" />
+            </g>
+          </svg>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section trust" aria-labelledby="trust-title">
+      <div class="container">
+        <p id="trust-title" class="trust-intro" data-i18n="trust.lead">Trusted by teams focused on translational breakthroughs.</p>
+        <ul class="trust-list" aria-label="Partner examples">
+          <li data-i18n="trust.item1">Company A</li>
+          <li data-i18n="trust.item2">Company B</li>
+          <li data-i18n="trust.item3">Company C</li>
+          <li data-i18n="trust.item4">Company D</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" data-i18n="about.title">About</h2>
+        <p data-i18n="about.body">NexiaBridge is a curated marketplace bridging discovery leaders with audited research partners. We keep diligence, secure contracting, and reporting inside one traceable workspace so every stakeholder stays aligned.</p>
+      </div>
+    </section>
+
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" data-i18n="services.title">Services</h2>
+        <div class="services-list">
+          <article class="service-item">
+            <h3 data-i18n="services.1.title">Sourcing Strategy</h3>
+            <p data-i18n="services.1.body">Scope your need, align compliance criteria, and surface the right labs within hours.</p>
+          </article>
+          <article class="service-item">
+            <h3 data-i18n="services.2.title">Quality Routing</h3>
+            <p data-i18n="services.2.body">Compare documentation, safety credentials, and run histories before you commit.</p>
+          </article>
+          <article class="service-item">
+            <h3 data-i18n="services.3.title">Delivery Oversight</h3>
+            <p data-i18n="services.3.body">Track milestones, samples, and data packages from kickoff to submission.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section" aria-labelledby="process-title">
+      <div class="container">
+        <h2 id="process-title" data-i18n="process.title">Process</h2>
+        <ol class="process-list">
+          <li>
+            <h3 data-i18n="process.1.title">Request</h3>
+            <p data-i18n="process.1.body">Submit a structured brief and governance guardrails.</p>
+          </li>
+          <li>
+            <h3 data-i18n="process.2.title">Compare</h3>
+            <p data-i18n="process.2.body">Review curated lab responses, pricing, and compliance fit.</p>
+          </li>
+          <li>
+            <h3 data-i18n="process.3.title">Run</h3>
+            <p data-i18n="process.3.body">Launch the selected program with automated updates and final reports.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="locations" class="section" aria-labelledby="locations-title">
+      <div class="container">
+        <h2 id="locations-title" data-i18n="locations.title">Locations</h2>
+        <div id="map" class="map" aria-label="Map with pins for Jerusalem and Rehovot"></div>
+        <p class="note" data-i18n="locations.note">Regional coordination from Jerusalem and Rehovot.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
+        <p class="contact-intro" data-i18n="contact.intro">Tell us about your upcoming program and we'll assemble the right collaborators.</p>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="field">
+              <label for="name" data-i18n="contact.name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="contact.email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="subject" data-i18n="contact.subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="contact.message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button class="btn" type="submit" data-i18n="contact.submit">Submit</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- Value points (minimal, single column) -->
-  <section class="section">
-    <div class="container">
-      <ul class="bullets">
-        <li>
-          <h3 data-i18n="vp.1.t">Fast turnarounds</h3>
-          <p data-i18n="vp.1.d">Get proposals quickly and move experiments forward without waiting.</p>
-        </li>
-        <li>
-          <h3 data-i18n="vp.2.t">Reproducible outputs</h3>
-          <p data-i18n="vp.2.d">SOPs, data, and summaries you can hand to stakeholders immediately.</p>
-        </li>
-        <li>
-          <h3 data-i18n="vp.3.t">Clear pricing</h3>
-          <p data-i18n="vp.3.d">Simple estimates that make procurement painless.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 data-i18n="about.title">About</h2>
-      <p data-i18n="about.body">
-        We streamline assay setup, purification (SPE, flash, prep-HPLC), stability planning, and tidy documentation.
-        Our focus is predictable execution and deliverables ready for review.
-      </p>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 data-i18n="services.title">Services</h2>
-      <ul class="list">
-        <li>
-          <h3 data-i18n="services.s1.title">Assay & Method Setup</h3>
-          <p data-i18n="services.s1.body">Design, plate maps, stock calculations, and tidy data handoff.</p>
-        </li>
-        <li>
-          <h3 data-i18n="services.s2.title">Purification Workflows</h3>
-          <p data-i18n="services.s2.body">SPE, flash, and prep-HPLC with reproducible parameters.</p>
-        </li>
-        <li>
-          <h3 data-i18n="services.s3.title">Docs & QA-Ready Outputs</h3>
-          <p data-i18n="services.s3.body">Concise SOPs, stability plans, and summaries for reviewers.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Locations (Map) -->
-  <section id="locations" class="section">
-    <div class="container">
-      <h2 data-i18n="locations.title">Locations</h2>
-      <div id="map" class="map" aria-label="Map with pins for Jerusalem and Rehovot"></div>
-      <p class="note" data-i18n="locations.note">Active around Jerusalem and Rehovot.</p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 data-i18n="contact.title">Contact</h2>
-      <form class="contact-form" action="#" method="post" novalidate>
-        <div class="form-row">
-          <div class="field">
-            <label for="name" data-i18n="contact.name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="field">
-            <label for="email" data-i18n="contact.email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="subject" data-i18n="contact.subject">Subject</label>
-          <input id="subject" name="subject" type="text" required />
-        </div>
-
-        <div class="field">
-          <label for="message" data-i18n="contact.message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-        </div>
-
-        <button class="btn" type="submit" data-i18n="contact.submit">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <p class="copy">© <span id="year"></span> <span data-i18n="brand">Quick Lab</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <nav aria-label="Social">
+      <p class="copy">© <span id="year"></span> <span data-i18n="brand">NexiaBridge</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <nav aria-label="Social links">
         <ul class="simple-links">
           <li><a href="#" data-i18n="social.twitter">Twitter</a></li>
           <li><a href="#" data-i18n="social.linkedin">LinkedIn</a></li>
@@ -157,7 +167,6 @@
     </div>
   </footer>
 
-  <!-- App JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
