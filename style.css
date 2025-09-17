@@ -1,10 +1,10 @@
-/* Scientist-style inspired, not copied. Minimal, flat, single-column layout. */
+/* Minimal, flat, single-column layout */
 
 /* Smooth anchor scrolling */
 html { scroll-behavior: smooth; }
 
 :root{
-  /* Neutral base + single accent (blue) */
+  /* Neutral base + one accent */
   --bg: #ffffff;
   --text: #0f172a;      /* slate-900-ish */
   --muted: #475569;     /* slate-600 */
@@ -24,20 +24,19 @@ body{
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1,h2,h3{
-  font-weight: 800;
+  font-weight: 700;
   margin: 0 0 8px;
-  line-height: 1.2;
-  letter-spacing: 0.2px;
+  line-height: 1.25;
 }
-h1{ font-size: clamp(2.1rem, 5vw, 3rem); }
-h2{ font-size: clamp(1.5rem, 3.2vw, 2rem); }
+h1{ font-size: clamp(2.1rem, 5vw, 2.8rem); }
+h2{ font-size: clamp(1.5rem, 3.2vw, 1.9rem); }
 h3{ font-size: clamp(1.1rem, 2.2vw, 1.25rem); }
 p{ margin: 0 0 14px; color: var(--muted); }
 
@@ -108,31 +107,7 @@ p{ margin: 0 0 14px; color: var(--muted); }
 .lead{ font-size: 1.1rem; max-width: 66ch; }
 .actions{ display: flex; gap: 10px; margin-top: 16px; }
 
-/* Stats row */
-.stats{
-  margin: 22px 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  color: var(--muted);
-}
-.stats strong{ color: var(--text); font-size: 1.1rem; }
-.stats span{ display: block; font-size: .95rem; }
-
-/* Trust bar */
-.trust-title{ color: var(--muted); margin-bottom: 14px; }
-.logo-row{
-  list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-}
-.logo-row li{
-  border: 1px solid var(--line); border-radius: 8px; padding: 18px 10px; text-align: center;
-  color: var(--muted); font-weight: 700; font-size: .95rem;
-}
-
-/* Buttons */
+/* Flat buttons */
 .btn{
   display: inline-block;
   padding: 10px 16px;
@@ -149,8 +124,8 @@ p{ margin: 0 0 14px; color: var(--muted); }
 }
 .btn.btn-ghost:hover{ text-decoration: underline; }
 
-/* Lists */
-.list{
+/* Bulleted value points (minimal) */
+.bullets{
   list-style: none;
   padding: 0;
   margin: 0;
@@ -158,14 +133,14 @@ p{ margin: 0 0 14px; color: var(--muted); }
   gap: 22px;
 }
 
-/* Steps */
-.steps{
-  list-style: none; padding: 0; margin: 0;
-  display: grid; gap: 16px;
+/* Services list */
+.list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 22px;
 }
-.steps li{ display: grid; gap: 4px; }
-.steps strong{ font-weight: 800; }
-.steps span{ color: var(--muted); }
 
 /* Map */
 .map{
@@ -233,7 +208,8 @@ textarea{ resize: vertical; }
 
 /* RTL / Hebrew mode */
 html[lang="he"] body{
-  font-family: "Heebo", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  /* Noto Sans supports Hebrew; keep same family for consistency */
+  font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
 }
 html[dir="rtl"] .header-inner{ flex-direction: row-reverse; }
 html[dir="rtl"] .primary-nav{ margin-left: 0; margin-right: auto; }
@@ -244,10 +220,6 @@ html[dir="rtl"] label,
 html[dir="rtl"] .copy{ text-align: right; }
 
 /* Responsive */
-@media (max-width: 960px){
-  .logo-row{ grid-template-columns: repeat(3, 1fr); }
-}
 @media (max-width: 720px){
   .form-row{ grid-template-columns: 1fr; }
-  .stats{ grid-template-columns: 1fr; }
 }
