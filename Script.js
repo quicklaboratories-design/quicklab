@@ -1,4 +1,4 @@
-// Scientist-style inspired template (original). i18n toggle + map (Google with Leaflet fallback) + minimal UX helpers.
+// Minimalist Quick Lab — original build. i18n toggle + year + scrollspy + contact form + Leaflet map.
 (() => {
   "use strict";
 
@@ -12,35 +12,28 @@
       "nav.locations": "Locations",
       "nav.contact": "Contact",
 
-      "hero.title": "A simpler way to run R&D work",
-      "hero.sub": "Request services, compare proposals, and get results with clean documentation — all in one place.",
-      "hero.cta1": "Get Started",
+      "hero.title": "On-Demand Lab Services, Minimal Hassle",
+      "hero.sub": "Request work, review proposals, and receive clean, QA-ready deliverables — all in one simple flow.",
+      "hero.cta1": "Start",
       "hero.cta2": "Learn More",
 
-      "stats.days": "days avg. to proposals",
-      "stats.savings": "average savings",
-      "stats.suppliers": "pre-qualified suppliers",
-
-      "trust.title": "Trusted by leading teams",
+      "vp.1.t": "Fast turnarounds",
+      "vp.1.d": "Get proposals quickly and move experiments forward without waiting.",
+      "vp.2.t": "Reproducible outputs",
+      "vp.2.d": "SOPs, data, and summaries you can hand to stakeholders immediately.",
+      "vp.3.t": "Clear pricing",
+      "vp.3.d": "Simple estimates that make procurement painless.",
 
       "about.title": "About",
-      "about.body": "Quick Lab helps teams move faster in the lab with clear handoffs and reproducible results. We streamline sourcing, tracking, and documentation so scientists can focus on science.",
+      "about.body": "We streamline assay setup, purification (SPE, flash, prep-HPLC), stability planning, and tidy documentation. Our focus is predictable execution and deliverables ready for review.",
 
       "services.title": "Services",
       "services.s1.title": "Assay & Method Setup",
       "services.s1.body": "Design, plate maps, stock calculations, and tidy data handoff.",
       "services.s2.title": "Purification Workflows",
-      "services.s2.body": "SPE, flash, and prep-HPLC strategies with reproducible parameters.",
+      "services.s2.body": "SPE, flash, and prep-HPLC with reproducible parameters.",
       "services.s3.title": "Docs & QA-Ready Outputs",
       "services.s3.body": "Concise SOPs, stability plans, and summaries for reviewers.",
-
-      "process.title": "How it works",
-      "process.s1.title": "Request",
-      "process.s1.body": "Describe your study and requirements.",
-      "process.s2.title": "Compare",
-      "process.s2.body": "Review proposals and timelines.",
-      "process.s3.title": "Run",
-      "process.s3.body": "Track progress and receive clean deliverables.",
 
       "locations.title": "Locations",
       "locations.note": "Active around Jerusalem and Rehovot.",
@@ -65,35 +58,28 @@
       "nav.locations": "מיקומים",
       "nav.contact": "יצירת קשר",
 
-      "hero.title": "דרך פשוטה יותר להפעיל עבודת מו״פ",
-      "hero.sub": "מבקשים שירותים, משווים הצעות ומקבלים תוצאות עם תיעוד מסודר — הכול במקום אחד.",
+      "hero.title": "שירותי מעבדה לפי דרישה — בלי כאב ראש",
+      "hero.sub": "מבקשים עבודה, בודקים הצעות ומקבלים תוצרים נקיים ומוכנים ל-QA — בתהליך פשוט אחד.",
       "hero.cta1": "התחילו",
       "hero.cta2": "למדו עוד",
 
-      "stats.days": "ימים בממוצע עד קבלת הצעות",
-      "stats.savings": "חיסכון ממוצע",
-      "stats.suppliers": "ספקים מאומתים",
-
-      "trust.title": "נאמנים על ידי צוותים מובילים",
+      "vp.1.t": "זמני תגובה מהירים",
+      "vp.1.d": "מקבלים הצעות במהירות ומקדמים ניסויים בלי לחכות.",
+      "vp.2.t": "תוצרים ניתנים לשחזור",
+      "vp.2.d": "‏SOPים, נתונים וסיכומים שמוכנים להציג לבעלי עניין.",
+      "vp.3.t": "תמחור ברור",
+      "vp.3.d": "הערכות פשוטות שמקלות על הרכש.",
 
       "about.title": "אודות",
-      "about.body": "Quick Lab מסייעת לצוותים לנוע מהר יותר במעבדה עם מסירות מסודרות ותוצאות ניתנות לשחזור. אנחנו מפשטים רכש, מעקב ותיעוד כדי שהמדענים יתמקדו במדע.",
+      "about.body": "אנחנו מפשטים הקמת מבחנים, ניקוי (SPE, פלאש, HPLC פרפ.), תכנון יציבות ותיעוד מסודר. המיקוד הוא ביצוע צפוי ותוצרים מוכנים לביקורת.",
 
       "services.title": "שירותים",
       "services.s1.title": "הקמת מבחנים ושיטות",
       "services.s1.body": "תכנון, מפות בארים, חישובי סטוקים והעברת נתונים מסודרת.",
       "services.s2.title": "זרימות ניקוי",
-      "services.s2.body": "אסטרטגיות SPE, פלאש ו-HPLC פרפ. עם פרמטרים ניתנים לשחזור.",
+      "services.s2.body": "‏SPE, פלאש ו-HPLC פרפ. עם פרמטרים ניתנים לשחזור.",
       "services.s3.title": "מסמכים ותוצרים מוכנים ל-QA",
-      "services.s3.body": "SOPים תמציתיים, תוכניות יציבות וסיכומים למבקרים.",
-
-      "process.title": "איך זה עובד",
-      "process.s1.title": "בקשה",
-      "process.s1.body": "תארו את המחקר והדרישות.",
-      "process.s2.title": "השוואה",
-      "process.s2.body": "בדקו הצעות ולוחות זמנים.",
-      "process.s3.title": "ביצוע",
-      "process.s3.body": "עקבו אחר התקדמות וקבלו תוצרים מסודרים.",
+      "services.s3.body": "‏SOPים תמציתיים, תוכניות יציבות וסיכומים למבקרים.",
 
       "locations.title": "מיקומים",
       "locations.note": "פעילים סביב ירושלים ורחובות.",
@@ -139,15 +125,11 @@
       }
     }
 
-    // Update marker titles if map exists
+    // Update marker titles if map exists (Leaflet)
     if (window.__qlMarkers){
       const titles = lang === "he" ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
-      // Google
-      window.__qlMarkers.jeru?.setTitle?.(titles.jeru);
-      window.__qlMarkers.reh?.setTitle?.(titles.reh);
-      // Leaflet popups
-      if (window.__qlMarkers.jeruPopup) window.__qlMarkers.jeru.bindPopup(titles.jeru);
-      if (window.__qlMarkers.rehPopup)  window.__qlMarkers.reh.bindPopup(titles.reh);
+      window.__qlMarkers.jeru.bindPopup(titles.jeru);
+      window.__qlMarkers.reh.bindPopup(titles.reh);
     }
   }
 
@@ -258,11 +240,10 @@
     });
   }
 
-  /** Map: Google if available, otherwise Leaflet (OSM) fallback **/
-  function initLeaflet(){
-    if (!window.L) return; // Leaflet not loaded
+  /** Leaflet map (always on; no key needed) **/
+  function initMap(){
     const mapEl = document.getElementById("map");
-    if (!mapEl) return;
+    if (!mapEl || !window.L) return;
 
     const jerusalem = [31.7683, 35.2137];
     const rehovot  = [31.8947, 34.8113];
@@ -282,51 +263,9 @@
     group.addTo(map);
     map.fitBounds(group.getBounds().pad(0.25));
 
-    // store refs for i18n updates
-    window.__qlMarkers = { jeru: m1, reh: m2, jeruPopup: true, rehPopup: true };
+    // store refs for language updates
+    window.__qlMarkers = { jeru: m1, reh: m2 };
     window.__qlMap = map;
-    window.__mapReady = true;
-  }
-
-  // Called by Google Maps if it loads successfully
-  window.initMap = function(){
-    try{
-      const mapEl = document.getElementById("map");
-      if (!mapEl || !window.google || !google.maps) return;
-
-      const jerusalem = { lat: 31.7683, lng: 35.2137 };
-      const rehovot  = { lat: 31.8947, lng: 34.8113 };
-
-      const map = new google.maps.Map(mapEl, {
-        center: { lat: 31.83, lng: 35.02 },
-        zoom: 10,
-        disableDefaultUI: false
-      });
-
-      const isHe = document.documentElement.lang === "he";
-      const titles = isHe ? { jeru: "ירושלים", reh: "רחובות" } : { jeru: "Jerusalem", reh: "Rehovot" };
-
-      const m1 = new google.maps.Marker({ position: jerusalem, map, title: titles.jeru });
-      const m2 = new google.maps.Marker({ position: rehovot,  map, title: titles.reh });
-
-      const bounds = new google.maps.LatLngBounds();
-      bounds.extend(jerusalem); bounds.extend(rehovot);
-      map.fitBounds(bounds);
-
-      window.__qlMap = map;
-      window.__qlMarkers = { jeru: m1, reh: m2 };
-      window.__mapReady = true;
-    }catch(e){
-      console.warn("Google Maps failed; falling back to Leaflet.", e);
-      initLeaflet();
-    }
-  };
-
-  function ensureMap(){
-    // If Google didn't call initMap within ~3s, fall back to Leaflet.
-    setTimeout(()=>{
-      if (!window.__mapReady) initLeaflet();
-    }, 3000);
   }
 
   /** Init **/
@@ -335,6 +274,6 @@
     initLang();
     initScrollspy();
     initForm();
-    ensureMap();
+    initMap();
   });
 })();
