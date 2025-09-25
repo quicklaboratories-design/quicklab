@@ -151,22 +151,6 @@ img, svg {
   text-decoration: underline;
 }
 
-.lang-toggle {
-  margin-left: var(--space-sm);
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.lang-toggle:hover,
-.lang-toggle:focus-visible {
-  background: var(--accent-hover);
-}
-
 .section {
   padding: var(--space-lg) 0;
 }
@@ -180,11 +164,6 @@ img, svg {
   display: flex;
   gap: var(--space-xs);
   margin-top: var(--space-sm);
-}
-
-.hero-motif {
-  margin-top: var(--space-md);
-  color: var(--line);
 }
 
 .btn {
@@ -244,6 +223,21 @@ img, svg {
   padding: 0.5rem 1rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
+}
+
+.trust-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  min-width: 140px;
+  background: #fff;
+  border-radius: var(--radius-pill);
+}
+
+.trust-logo img {
+  max-height: 48px;
+  width: auto;
 }
 
 .services-list {
