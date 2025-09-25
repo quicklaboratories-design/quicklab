@@ -13,7 +13,7 @@
       "nav.contact": "Contact",
       "toggle.label": "HEB / עב",
       "toggle.aria": "Switch language to Hebrew",
-      "hero.title": "On-demand lab support the moment you need it.",
+      "hero.title": "On-demand lab support",
       "hero.lead": "Quicklab mobilizes vetted specialists, equipment, and compliance in hours so your experiments stay on schedule.",
       "hero.ctaPrimary": "Request Support",
       "hero.ctaSecondary": "Explore Services",
@@ -70,7 +70,7 @@
       "nav.contact": "יצירת קשר",
       "toggle.label": "ENG / אנג",
       "toggle.aria": "החלפת שפה לאנגלית",
-      "hero.title": "תמיכת מעבדה לפי דרישה ברגע שאתם צריכים.",
+      "hero.title": "תמיכת מעבדה לפי דרישה",
       "hero.lead": "Quicklab מגייסת מומחים מאומתים, ציוד וציות בתוך שעות כדי שהניסויים שלכם יישארו במסלול.",
       "hero.ctaPrimary": "בקשת תמיכה",
       "hero.ctaSecondary": "עיינו בשירותים",
@@ -344,7 +344,7 @@
     }
 
     const jerusalem = [31.7683, 35.2137];
-    const rehovot = [31.8947, 34.8113];
+       const rehovot = [31.8947, 34.8113];
 
     const map = L.map(mapElement, { scrollWheelZoom: true });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
